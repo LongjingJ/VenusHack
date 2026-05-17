@@ -294,7 +294,7 @@ function loadSelectedSchools() {
 
     if (!profile.campuses || profile.campuses.length === 0) {
         grid.innerHTML = `
-            <div class="card" style="margin-bottom:16px">
+            <div class="card empty-selected-card">
                 <p style="margin:0;color:#64748b">
                     You have not selected any schools yet.
                 </p>
