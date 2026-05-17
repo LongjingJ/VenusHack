@@ -13,7 +13,7 @@
         <h1>Welcome back 👋</h1>
         <p>Continue your UC transfer plan.</p>
 
-        <form action="/Login" method="post">
+        <form onsubmit="return handleLoginSubmit()">
             <label for="email">Email</label>
             <input
                     type="email"
@@ -48,5 +48,6 @@
     </div>
 </div>
 
+<script src="auth.js"></script>
 </body>
 </html>

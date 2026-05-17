@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transfer Hub — Schools</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+
+<body class="app-page">
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-icon">TH</div>
+    Transfer Hub
+  </a >
+  <div class="search-wrap">
+    <i class="ti ti-search"></i>
+    <input type="text" placeholder="Search schools...">
+  </div>
+  <div class="nav-links">
+    <button class="nav-btn" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main</button>
+    <button class="nav-btn" onclick="toast('Postings page')"><i class="ti ti-layout-list"></i>Postings</button>
+    <button class="nav-btn" onclick="toast('Network page')"><i class="ti ti-users"></i>Network</button>
+    <button class="nav-btn" onclick="toast('Events page')"><i class="ti ti-calendar-event"></i>Events</button>
+    <button class="nav-btn active" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Schools</button>
+  </div>
+  <div class="avatar" title="Profile">AC</div>
+</nav>
+
+<div class="body">
+
+  <aside>
+    <div class="profile-box">
+      <div class="profile-av">AC</div>
+      <div class="profile-name">Alex Chen</div>
+      <div class="profile-sub">Irvine Valley College</div>
+      <div class="profile-gpa">GPA 3.7 · CS · Resident</div>
+    </div>
+
+    <div class="sb-label">Browse</div>
+    <button class="sb-item" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main page</button>
+    <button class="sb-item" onclick="toast('Users\' Postings')"><i class="ti ti-layout-list"></i>Users' postings</button>
+    <button class="sb-item" onclick="toast('Network page')"><i class="ti ti-users"></i>My Network</button>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-label">Transfer Tools</div>
+    <button class="sb-item active" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Transfer schools</button>
+    <button class="sb-item" onclick="toast('Acceptance Rates')"><i class="ti ti-chart-bar"></i>Acceptance rates</button>
+    <button class="sb-item" onclick="window.open('https://assist.org','_blank')"><i class="ti ti-external-link"></i>ASSIST database</button>
+  </aside>
+
+  <main>
+    <div class="sec-header">
+      <h3>All Transfer Schools</h3>
+      <button class="conn-btn" style="padding: 4px 12px;" onclick="toast('Filter opened')"><i class="ti ti-filter"></i> Filter</button>
+    </div>
+
+    <div class="school-grid">
+      <div class="school-card" onclick="toast('UCLA detail')">
+        <div class="sc-name">UCLA</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Los Angeles, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-green">Strong match</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:88%;background:#1d9e75"></div></div>
+        <div class="match-meta"><span>88% match</span><span>24% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="toast('UC Berkeley detail')">
+        <div class="sc-name">UC Berkeley</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Berkeley, CA</div>
+        <div class="badge-row"><span class="badge b-blue">EECS</span><span class="badge b-amber">Reach</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:65%;background:#ef9f27"></div></div>
+        <div class="match-meta"><span>65% match</span><span>18% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="toast('UCSD detail')">
+        <div class="sc-name">UC San Diego</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> La Jolla, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-green">Strong match</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:83%;background:#1d9e75"></div></div>
+        <div class="match-meta"><span>83% match</span><span>30% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="toast('UCI detail')">
+        <div class="sc-name">UC Irvine</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Irvine, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-green">Good match</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:76%;background:#1d9e75"></div></div>
+        <div class="match-meta"><span>76% match</span><span>35% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="toast('USC detail')">
+        <div class="sc-name">USC</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Los Angeles, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-amber">Private</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:60%;background:#ef9f27"></div></div>
+        <div class="match-meta"><span>60% match</span><span>15% acceptance</span></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="right-bar">
+    <div class="rb-title">Quick actions</div>
+    <button class="quick-btn" onclick="toast('Compare Majors')"><i class="ti ti-git-compare"></i>Compare majors</button>
+    <button class="quick-btn" onclick="window.open('https://assist.org','_blank')"><i class="ti ti-external-link"></i>ASSIST articulation</button>
+
+    <div class="rb-title" style="margin-top:18px">Your progress</div>
+    <div class="prog-box">
+      <div class="prog-label">Transfer readiness</div>
+      <div class="prog-bar"><div class="prog-fill" style="width:72%"></div></div>
+      <div class="prog-pct">72% complete</div>
+      <div class="prog-hint">Missing: TAG app, 2 recs</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast-el"></div>
+<script src="auth.js"></script>
+
+</body>
+</html>
