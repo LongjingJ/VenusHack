@@ -9,55 +9,200 @@
 <body>
 
 <div class="container">
-    <div class="card">
-        <h1>Create Account</h1>
-        <p>Create your account and tell us about yourself.</p>
+    <div class="card large-card">
 
-        <form action="/Signup" method="post" onsubmit="return validateSignup()">
+        <h1>Create Your Profile</h1>
+        <p>We’ll use this information to personalize your UC transfer guidance.</p>
 
-            <label>Email</label>
-            <input type="email" name="email" required>
+        <form action="/Signup" method="post" onsubmit="return validateFinalSignup()">
 
-            <label>Create Password</label>
-            <input type="password" id="password" name="password" required>
+            <!-- =========================
+                 STEP 1: CREATE ACCOUNT
+                 ========================= -->
+            <div id="accountStep">
+                <div class="step-label">Step 1 of 3: Create Account</div>
 
-            <label>Confirm Password</label>
-            <input type="password" id="confirmPassword" name="confirm_password" required>
+                <label for="email">Email</label>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        required>
+                <small>We’ll use this to save your transfer plan.</small>
 
-            <label>Are you a student or professor?</label>
-            <select id="role" name="role" onchange="showRoleQuestions()" required>
-                <option value="">Select one</option>
-                <option value="student">Student</option>
-                <option value="professor">Professor</option>
-            </select>
+                <label for="password">Create Password</label>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="At least 8 characters"
+                        minlength="8"
+                        required>
 
-            <!-- Student Section -->
-            <div id="studentSection" class="hidden">
-                <label>Community College</label>
-                <input type="text"
-                       name="cc_school"
-                       placeholder="Example: Irvine Valley College">
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirm_password"
+                        placeholder="Enter your password again"
+                        minlength="8"
+                        required>
 
-                <label>Current Major</label>
-                <input type="text"
-                       name="major"
-                       placeholder="Example: Computer Science">
+                <button type="button" onclick="goToRoleStep()">
+                    Create Account
+                </button>
             </div>
 
-            <!-- Professor Section -->
-            <div id="professorSection" class="hidden">
-                <label>Department</label>
-                <input type="text"
-                       name="department"
-                       placeholder="Example: Computer Science">
+            <!-- =========================
+                 STEP 2: CHOOSE ROLE
+                 ========================= -->
+            <div id="roleStep" class="hidden">
+                <div class="step-label">Step 2 of 3: Choose Your Role</div>
+
+                <h2>Tell us who you are</h2>
+                <p>This helps us ask the right questions.</p>
+
+                <button type="button" onclick="chooseRole('student')">
+                    I am a CC student planning to transfer
+                </button>
+
+                <button
+                        type="button"
+                        class="secondary-button"
+                        onclick="chooseRole('professor')">
+                    I am a professor or advisor helping students
+                </button>
+
+                <input type="hidden" id="role" name="role">
+
+                <div class="back-link">
+                    <a href="#" onclick="backToAccountStep(); return false;">
+                        ← Back
+                    </a>
+                </div>
             </div>
 
-            <button type="submit">Create Account</button>
+            <!-- =========================
+                 STEP 3A: STUDENT INFO
+                 ========================= -->
+            <div id="studentStep" class="hidden">
+                <div class="step-label">Step 3 of 3: Student Information</div>
+
+                <label for="cc_school">Current Community College</label>
+                <input
+                        type="text"
+                        id="cc_school"
+                        name="cc_school"
+                        placeholder="Example: Irvine Valley College">
+
+                <label for="major">Current Major</label>
+                <input
+                        type="text"
+                        id="major"
+                        name="major"
+                        placeholder="Example: Computer Science">
+
+                <label>Interested UC Campuses</label>
+                <small>You can choose more than one.</small>
+
+                <div class="uc-grid">
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCB">
+                        <span class="uc-logo">🐻</span>
+                        <span>UC Berkeley</span>
+                    </label>
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCLA">
+                        <span class="uc-logo">🏀</span>
+                        <span>UCLA</span>
+                    </label>
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCI">
+                        <span class="uc-logo">🐜</span>
+                        <span>UC Irvine</span>
+                    </label>
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCSD">
+                        <span class="uc-logo">🔱</span>
+                        <span>UC San Diego</span>
+                    </label>
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCSB">
+                        <span class="uc-logo">🌊</span>
+                        <span>UC Santa Barbara</span>
+                    </label>
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCD">
+                        <span class="uc-logo">🐴</span>
+                        <span>UC Davis</span>
+                    </label>
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCSC">
+                        <span class="uc-logo">🐌</span>
+                        <span>UC Santa Cruz</span>
+                    </label>
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCR">
+                        <span class="uc-logo">🛡️</span>
+                        <span>UC Riverside</span>
+                    </label>
+
+                    <label class="uc-card">
+                        <input type="checkbox" name="uc_campuses" value="UCM">
+                        <span class="uc-logo">🐱</span>
+                        <span>UC Merced</span>
+                    </label>
+
+                </div>
+
+                <button type="submit">Finish Student Sign Up</button>
+
+                <div class="back-link">
+                    <a href="#" onclick="backToRoleStep(); return false;">
+                        ← Back
+                    </a>
+                </div>
+            </div>
+
+            <!-- =========================
+                 STEP 3B: PROFESSOR INFO
+                 ========================= -->
+            <div id="professorStep" class="hidden">
+                <div class="step-label">
+                    Step 3 of 3: Professor / Advisor Information
+                </div>
+
+                <label for="department">Department</label>
+                <input
+                        type="text"
+                        id="department"
+                        name="department"
+                        placeholder="Example: Computer Science Department">
+
+                <button type="submit">Finish Professor Sign Up</button>
+
+                <div class="back-link">
+                    <a href="#" onclick="backToRoleStep(); return false;">
+                        ← Back
+                    </a>
+                </div>
+            </div>
+
         </form>
 
         <div class="back-link">
             <a href="Welcome.html">← Back to Home</a>
         </div>
+
     </div>
 </div>
 

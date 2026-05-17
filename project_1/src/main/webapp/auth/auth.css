@@ -11,14 +11,19 @@ body {
 }
 
 .card {
-    width: 420px;
+    width: 430px;
     background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    padding: 32px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
 }
 
-h1 {
+.large-card {
+    width: 620px;
+}
+
+h1,
+h2 {
     text-align: center;
     margin-top: 0;
 }
@@ -26,12 +31,12 @@ h1 {
 p {
     text-align: center;
     color: #666666;
-    margin-bottom: 25px;
+    line-height: 1.5;
 }
 
 label {
     display: block;
-    margin-top: 15px;
+    margin-top: 16px;
     margin-bottom: 6px;
     font-weight: bold;
 }
@@ -39,20 +44,35 @@ label {
 input,
 select {
     width: 100%;
-    padding: 10px;
+    padding: 11px;
     box-sizing: border-box;
     border: 1px solid #cccccc;
-    border-radius: 6px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+    color: #777777;
+    font-size: 12px;
 }
 
 button {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 22px;
     padding: 12px;
     background-color: #0d6efd;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 7px;
     cursor: pointer;
     font-size: 15px;
 }
@@ -61,18 +81,83 @@ button:hover {
     background-color: #0b5ed7;
 }
 
+.secondary-button {
+    background-color: #eef4ff;
+    color: #0d6efd;
+    border: 1px solid #0d6efd;
+}
+
+.secondary-button:hover {
+    background-color: #dbeaff;
+}
+
 .hidden {
     display: none;
 }
 
+.step-label {
+    text-align: center;
+    background-color: #eef4ff;
+    color: #0d6efd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.uc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.uc-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.uc-card:hover {
+    border-color: #0d6efd;
+    background-color: #f5f9ff;
+}
+
+.uc-card input {
+    width: auto;
+}
+
+.uc-logo {
+    width: 52px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: #eef4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
 .back-link {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 22px;
 }
 
 .link-right {
     text-align: right;
     margin-top: 10px;
+}
+
+.note {
+    font-size: 13px;
+    color: #777777;
+    margin-top: 18px;
 }
 
 a {
