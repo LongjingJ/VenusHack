@@ -6,8 +6,14 @@ function hideAllSignupSteps() {
 }
 
 function goToRoleStep() {
+    const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (email === "") {
+        alert("Please enter your email.");
+        return;
+    }
 
     if (password.length < 8) {
         alert("Please use at least 8 characters for your password.");
