@@ -171,16 +171,19 @@ a:hover {
 
 .app-page {
     padding: 0;
+    background: #f7f9fd;
+    color: #13233b;
+    font-family: Arial, sans-serif;
 }
 
 nav {
-    height: 64px;
-    padding: 0 24px;
+    height: 78px;
+    padding: 0 28px;
     background: #ffffff;
-    border-bottom: 1px solid #e4e8f0;
+    border-bottom: 1px solid #dfe5ef;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 22px;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -196,27 +199,30 @@ nav {
 }
 
 .logo-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    background: #0d6efd;
+    width: 42px;
+    height: 42px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #3182ff, #145df4);
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 15px;
+    box-shadow: 0 8px 18px rgba(13, 110, 253, 0.25);
 }
 
 .search-wrap {
     flex: 1;
-    max-width: 420px;
+    max-width: 470px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 12px;
-    background: #f5f7fb;
+    gap: 12px;
+    min-height: 46px;
+    padding: 0 16px;
+    background: #f8fafc;
     border: 1px solid #e0e6ef;
-    border-radius: 8px;
+    border-radius: 9px;
+    box-shadow: inset 0 1px 2px rgba(20, 34, 56, 0.03);
 }
 
 .search-wrap input {
@@ -233,7 +239,8 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
+    margin-left: auto;
 }
 
 .nav-btn,
@@ -251,9 +258,11 @@ nav {
 }
 
 .nav-btn {
-    padding: 9px 12px;
+    min-height: 46px;
+    padding: 0 14px;
     background: transparent;
-    color: #40516a;
+    color: #13233b;
+    font-weight: 700;
 }
 
 .nav-btn:hover,
@@ -263,23 +272,25 @@ nav {
 }
 
 .avatar {
-    width: 36px;
-    height: 36px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     background: #1b2a41;
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
 }
 
 .body {
     display: grid;
-    grid-template-columns: 240px minmax(0, 1fr) 260px;
-    gap: 18px;
-    padding: 18px 24px;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 28px;
+    padding: 24px 26px 40px;
+    max-width: 1536px;
+    margin: 0 auto;
 }
 
 aside,
@@ -287,8 +298,17 @@ aside,
     background: #ffffff;
     border: 1px solid #e4e8f0;
     border-radius: 10px;
-    padding: 16px;
+    padding: 20px;
     height: fit-content;
+    box-shadow: 0 6px 18px rgba(20, 34, 56, 0.04);
+}
+
+.app-page aside {
+    display: block;
+}
+
+.app-page .right-bar {
+    display: none;
 }
 
 main {
@@ -297,23 +317,24 @@ main {
 
 .profile-box {
     text-align: center;
-    padding-bottom: 14px;
+    padding: 0 0 28px;
     border-bottom: 1px solid #edf0f5;
-    margin-bottom: 14px;
+    margin-bottom: 22px;
 }
 
 .profile-av,
 .peer-av {
-    width: 46px;
-    height: 46px;
-    margin: 0 auto 8px;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 14px;
     border-radius: 50%;
-    background: #0d6efd;
+    background: linear-gradient(135deg, #3182ff, #145df4);
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
+    font-size: 18px;
 }
 
 .profile-name,
@@ -322,6 +343,11 @@ main {
 .event-title {
     color: #1b2a41;
     font-weight: 700;
+}
+
+.profile-name {
+    font-size: 18px;
+    margin-bottom: 6px;
 }
 
 .profile-sub,
@@ -333,14 +359,14 @@ main {
 .match-meta,
 .prog-hint {
     color: #6b778c;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .sb-label,
 .rb-title {
-    margin: 16px 0 8px;
+    margin: 22px 0 12px;
     color: #6b778c;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -371,19 +397,28 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2px 0 10px;
+    margin: 6px 0 16px;
 }
 
 .sec-header h3 {
     margin: 0;
     color: #1b2a41;
+    font-size: 23px;
+    letter-spacing: 0;
 }
 
 .see-all,
 .conn-btn {
-    padding: 7px 12px;
+    padding: 9px 14px;
     background: #eef4ff;
     color: #0d6efd;
+    font-weight: 700;
+}
+
+.see-all {
+    background: transparent;
+    font-size: 18px;
+    padding-right: 0;
 }
 
 .see-all:hover,
@@ -394,8 +429,8 @@ main {
 .school-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 18px;
+    gap: 14px 24px;
+    margin-bottom: 28px;
 }
 
 .school-card,
@@ -404,12 +439,13 @@ main {
     background: #ffffff;
     border: 1px solid #e4e8f0;
     border-radius: 10px;
-    padding: 14px;
-    box-shadow: 0 3px 10px rgba(20, 34, 56, 0.05);
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(20, 34, 56, 0.05);
 }
 
 .body .card {
     width: auto;
+    box-sizing: border-box;
 }
 
 .school-card {
@@ -423,26 +459,27 @@ main {
 .sc-name {
     color: #1b2a41;
     font-weight: 700;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    font-size: 22px;
 }
 
 .sc-loc {
     color: #6b778c;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .badge-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin: 12px 0;
+    gap: 10px;
+    margin: 20px 0;
 }
 
 .badge,
 .event-tag {
     border-radius: 999px;
-    padding: 4px 8px;
-    font-size: 12px;
+    padding: 7px 12px;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -478,7 +515,16 @@ main {
 .match-meta {
     display: flex;
     justify-content: space-between;
-    margin-top: 7px;
+    margin-top: 16px;
+    font-size: 16px;
+    color: #495973;
+}
+
+.peer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
 }
 
 .peer-row,
@@ -486,7 +532,7 @@ main {
 .event-row {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .peer-row .peer-av {
@@ -496,6 +542,8 @@ main {
 
 .peer-row .conn-btn {
     margin-left: auto;
+    background: #eef4ff;
+    border-radius: 8px;
 }
 
 .insight-icon,
@@ -530,11 +578,11 @@ main {
 .prog-pct,
 .deadline-row {
     color: #1b2a41;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .prog-pct {
-    margin-top: 8px;
+    margin-top: 12px;
     font-weight: 700;
 }
 
@@ -542,8 +590,12 @@ main {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    padding: 8px 0;
+    padding: 14px 0;
     border-bottom: 1px solid #edf0f5;
+}
+
+.app-page .prog-box {
+    padding: 20px;
 }
 
 .toast {
@@ -590,12 +642,21 @@ main {
         padding: 12px;
     }
 
+    aside {
+        display: none;
+    }
+
     .school-grid {
         grid-template-columns: 1fr;
     }
 }
 
 .selected-school-card {
-    border: 1.5px solid #9fc2ff;
+    border: 1px solid #9fc2ff;
     background: #fbfdff;
+}
+
+.empty-selected-card {
+    grid-column: 1 / -1;
+    color: #64748b;
 }

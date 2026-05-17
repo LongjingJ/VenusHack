@@ -48,19 +48,31 @@
             <div class="profile-gpa">GPA 3.7 · CS · Resident</div>
         </div>
 
-        <div class="sb-label">Browse</div>
-        <button class="sb-item active"><i class="ti ti-home"></i>Main page</button>
-        <button class="sb-item" onclick="toast('Users\' Postings')"><i class="ti ti-layout-list"></i>Users' postings</button>
-        <button class="sb-item" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>My Network</button>
-        <button class="sb-item" onclick="toast('Suggestions')"><i class="ti ti-user-search"></i>Suggestions</button>
-        <button class="sb-item" onclick="window.location.href='events.html'"><i class="ti ti-calendar-event"></i>Events</button>
-
         <div class="sb-divider"></div>
 
-        <div class="sb-label">Transfer Tools</div>
-        <button class="sb-item" onclick="toast('Transfer Schools')"><i class="ti ti-building-community"></i>Transfer schools</button>
-        <button class="sb-item" onclick="toast('Acceptance Rates')"><i class="ti ti-chart-bar"></i>Acceptance rates</button>
-        <button class="sb-item" onclick="window.open('https://assist.org','_blank')"><i class="ti ti-external-link"></i>ASSIST database</button>
+        <div class="rb-title">Your progress</div>
+        <div class="prog-box">
+            <div class="prog-label">Transfer readiness</div>
+            <div class="prog-bar">
+                <div class="prog-fill" style="width:72%"></div>
+            </div>
+            <div class="prog-pct">72% complete</div>
+            <div class="prog-hint">Missing: TAG app, 2 recs</div>
+        </div>
+
+        <div class="rb-title">Deadlines</div>
+        <div class="deadline-row">
+            <span>UC application</span>
+            <span style="color:#e24b4a;font-weight:500">Nov 30</span>
+        </div>
+        <div class="deadline-row">
+            <span>TAG deadline</span>
+            <span style="color:#ef9f27;font-weight:500">Sep 30</span>
+        </div>
+        <div class="deadline-row">
+            <span>IGETC petition</span>
+            <span>Jun 15</span>
+        </div>
     </aside>
 
     <!-- MAIN CONTENT -->
@@ -114,37 +126,29 @@
             <h3>Peer suggestions</h3>
             <button class="see-all" onclick="window.location.href='network.html'">See all →</button>
         </div>
-        <div class="card" style="margin-bottom:8px">
-            <div class="peer-row">
-                <div class="peer-av" style="background:#e8f2fc;color:#1a6fc4">MR</div>
-                <div>
-                    <div class="peer-name">Maya Rodriguez</div>
-                    <div class="peer-sub">De Anza CC · GPA 3.8 · CS · Resident</div>
-                    <div class="peer-targets">→ UCLA, UC Berkeley</div>
+        <div class="peer-grid">
+            <div class="card">
+                <div class="peer-row">
+                    <div class="peer-av" style="background:#e8f2fc;color:#1a6fc4">MR</div>
+                    <div>
+                        <div class="peer-name">Maya Rodriguez</div>
+                        <div class="peer-sub">De Anza CC · GPA 3.8 · CS · Resident</div>
+                        <div class="peer-targets">→ UCLA, UC Berkeley</div>
+                    </div>
+                    <button class="conn-btn" onclick="toast('Request sent to Maya!')">Connect</button>
                 </div>
-                <button class="conn-btn" onclick="toast('Request sent to Maya!')">Connect</button>
             </div>
-        </div>
-        <div class="card" style="margin-bottom:8px">
-            <div class="peer-row">
-                <div class="peer-av" style="background:#eaf3de;color:#3b6d11">JK</div>
-                <div>
-                    <div class="peer-name">James Kim</div>
-                    <div class="peer-sub">Foothill CC · GPA 3.6 · CS · International</div>
-                    <div class="peer-targets">→ UCSD, UCI</div>
+
+            <div class="card">
+                <div class="peer-row">
+                    <div class="peer-av" style="background:#eaf3de;color:#3b6d11">JK</div>
+                    <div>
+                        <div class="peer-name">James Kim</div>
+                        <div class="peer-sub">Foothill CC · GPA 3.6 · CS · International</div>
+                        <div class="peer-targets">→ UCSD, UCLA</div>
+                    </div>
+                    <button class="conn-btn" onclick="toast('Request sent to James!')">Connect</button>
                 </div>
-                <button class="conn-btn" onclick="toast('Request sent to James!')">Connect</button>
-            </div>
-        </div>
-        <div class="card" style="margin-bottom:16px">
-            <div class="peer-row">
-                <div class="peer-av" style="background:#faeeda;color:#854f0b">SP</div>
-                <div>
-                    <div class="peer-name">Sofia Patel</div>
-                    <div class="peer-sub">Saddleback CC · GPA 3.9 · CS · Resident</div>
-                    <div class="peer-targets">→ UCLA, USC</div>
-                </div>
-                <button class="conn-btn" onclick="toast('Request sent to Sofia!')">Connect</button>
             </div>
         </div>
 
@@ -201,28 +205,6 @@
         </div>
 
     </main>
-
-    <!-- RIGHT SIDEBAR -->
-    <div class="right-bar">
-        <div class="rb-title">Quick actions</div>
-        <button class="quick-btn" onclick="toast('Find Transfer Schools')"><i class="ti ti-building-community"></i>Find schools</button>
-        <button class="quick-btn" onclick="toast('Compare Majors')"><i class="ti ti-git-compare"></i>Compare majors</button>
-        <button class="quick-btn" onclick="toast('Acceptance Rates')"><i class="ti ti-chart-bar"></i>Acceptance rate</button>
-        <button class="quick-btn" onclick="window.open('https://assist.org','_blank')"><i class="ti ti-external-link"></i>ASSIST articulation</button>
-
-        <div class="rb-title" style="margin-top:18px">Your progress</div>
-        <div class="prog-box">
-            <div class="prog-label">Transfer readiness</div>
-            <div class="prog-bar"><div class="prog-fill" style="width:72%"></div></div>
-            <div class="prog-pct">72% complete</div>
-            <div class="prog-hint">Missing: TAG app, 2 recs</div>
-        </div>
-
-        <div class="rb-title">Deadlines</div>
-        <div class="deadline-row"><span>UC application</span><span style="color:#e24b4a;font-weight:500">Nov 30</span></div>
-        <div class="deadline-row"><span>TAG deadline</span><span style="color:#ef9f27;font-weight:500">Sep 30</span></div>
-        <div class="deadline-row"><span>IGETC petition</span><span>Jun 15</span></div>
-    </div>
 
 </div><!-- .body -->
 
