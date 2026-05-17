@@ -178,11 +178,12 @@
                 </div>
 
                 <label for="department">Department</label>
-                <input
-                        type="text"
-                        id="department"
-                        name="department"
-                        placeholder="Example: Computer Science Department">
+                <select id="department" name="department" required>
+                    <option value="" disabled selected>Select your department...</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Math">Math</option>
+                </select>
 
                 <button type="submit">Finish Professor Sign Up</button>
 

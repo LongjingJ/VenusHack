@@ -284,6 +284,17 @@ nav {
     font-weight: 700;
 }
 
+.avatar,
+.profile-av {
+    cursor: pointer;
+}
+
+.avatar:focus,
+.profile-av:focus {
+    outline: 3px solid rgba(13, 110, 253, 0.25);
+    outline-offset: 3px;
+}
+
 .body {
     display: grid;
     grid-template-columns: 290px minmax(0, 1fr);
@@ -659,4 +670,29 @@ main {
 .empty-selected-card {
     grid-column: 1 / -1;
     color: #64748b;
+}
+
+.profile-body main {
+    max-width: 900px;
+}
+
+.profile-form {
+    width: auto;
+}
+
+.profile-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 20px;
+}
+
+.profile-save-btn {
+    width: auto;
+    padding: 12px 20px;
+}
+
+@media (max-width: 760px) {
+    .profile-form-grid {
+        grid-template-columns: 1fr;
+    }
 }

@@ -183,10 +183,10 @@ function applyProfile() {
     const profile =
         JSON.parse(localStorage.getItem("transferHubProfile") || "{}");
 
-    const initials = getInitials(profile.email);
-    const displayName = profile.email
+    const initials = getInitials(profile.displayName || profile.email);
+    const displayName = profile.displayName || (profile.email
         ? titleCase(profile.email.split("@")[0])
-        : "Alex Chen";
+        : "Alex Chen");
 
     document.querySelectorAll(".avatar, .profile-av").forEach(function (el) {
         el.textContent = initials;
@@ -211,9 +211,76 @@ function applyProfile() {
             return;
         }
 
+        const gpa = profile.gpa || "3.7";
         const major = profile.major || "CS";
-        el.textContent = "GPA 3.7 · " + major + " · Resident";
+        const residency = profile.residencyStatus || "Resident";
+        const transferYear = profile.transferYear ? " · Transfer " + profile.transferYear : "";
+        el.textContent = "GPA " + gpa + " · " + major + " · " + residency + transferYear;
     });
+}
+
+function openProfilePage() {
+    window.location.href = "profile.html";
+}
+
+function enableProfileLinks() {
+    document.querySelectorAll(".avatar, .profile-av").forEach(function (el) {
+        el.setAttribute("role", "button");
+        el.setAttribute("tabindex", "0");
+        el.title = "Edit profile";
+        el.addEventListener("click", openProfilePage);
+        el.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openProfilePage();
+            }
+        });
+    });
+}
+
+function loadProfileForm() {
+    const form = document.querySelector(".profile-form");
+
+    if (!form) {
+        return;
+    }
+
+    const profile =
+        JSON.parse(localStorage.getItem("transferHubProfile") || "{}");
+
+    document.getElementById("profileName").value = profile.displayName || "";
+    document.getElementById("profileEmail").value = profile.email || "";
+    document.getElementById("profileSchool").value = profile.school || "";
+    document.getElementById("profileMajor").value = profile.major || profile.department || "";
+    document.getElementById("profileGpa").value = profile.gpa || "";
+    document.getElementById("profileTransferYear").value = profile.transferYear || "";
+    document.getElementById("profileResidency").value = profile.residencyStatus || "";
+}
+
+function handleProfileSubmit() {
+    const savedProfile =
+        JSON.parse(localStorage.getItem("transferHubProfile") || "{}");
+
+    const updatedProfile = {
+        ...savedProfile,
+        displayName: document.getElementById("profileName").value.trim(),
+        email: document.getElementById("profileEmail").value.trim(),
+        school: document.getElementById("profileSchool").value.trim(),
+        major: document.getElementById("profileMajor").value,
+        gpa: document.getElementById("profileGpa").value,
+        transferYear: document.getElementById("profileTransferYear").value,
+        residencyStatus: document.getElementById("profileResidency").value,
+        isLoggedIn: true
+    };
+
+    if (updatedProfile.role === "professor") {
+        updatedProfile.department = updatedProfile.major;
+    }
+
+    localStorage.setItem("transferHubProfile", JSON.stringify(updatedProfile));
+    applyProfile();
+    toast("Profile saved!");
+    return false;
 }
 
 const schoolInfo = {
@@ -348,6 +415,8 @@ function loadSelectedSchools() {
 
 document.addEventListener("DOMContentLoaded", function () {
     applyProfile();
+    enableProfileLinks();
+    loadProfileForm();
     loadSelectedSchools();
 });
 

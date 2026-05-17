@@ -71,7 +71,7 @@
     </div>
 
     <div class="school-grid">
-      <div class="school-card" onclick="toast('UCLA detail')">
+      <div class="school-card" onclick="showSchoolModal('UCLA')">
         <div class="sc-name">UCLA</div>
         <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Los Angeles, CA</div>
         <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-green">Strong match</span></div>
@@ -79,7 +79,7 @@
         <div class="match-meta"><span>88% match</span><span>24% acceptance</span></div>
       </div>
 
-      <div class="school-card" onclick="toast('UC Berkeley detail')">
+      <div class="school-card" onclick="showSchoolModal('UCB')">
         <div class="sc-name">UC Berkeley</div>
         <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Berkeley, CA</div>
         <div class="badge-row"><span class="badge b-blue">EECS</span><span class="badge b-amber">Reach</span></div>
@@ -87,7 +87,7 @@
         <div class="match-meta"><span>65% match</span><span>18% acceptance</span></div>
       </div>
 
-      <div class="school-card" onclick="toast('UCSD detail')">
+      <div class="school-card" onclick="showSchoolModal('UCSD')">
         <div class="sc-name">UC San Diego</div>
         <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> La Jolla, CA</div>
         <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-green">Strong match</span></div>
@@ -95,12 +95,52 @@
         <div class="match-meta"><span>83% match</span><span>30% acceptance</span></div>
       </div>
 
-      <div class="school-card" onclick="toast('UCI detail')">
+      <div class="school-card" onclick="showSchoolModal('UCI')">
         <div class="sc-name">UC Irvine</div>
         <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Irvine, CA</div>
         <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-green">Good match</span></div>
         <div class="match-bar"><div class="match-fill" style="width:76%;background:#1d9e75"></div></div>
         <div class="match-meta"><span>76% match</span><span>35% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="showSchoolModal('UCSB')">
+        <div class="sc-name">UC Santa Barbara</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Santa Barbara, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-amber">Good match</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:74%;background:#ef9f27"></div></div>
+        <div class="match-meta"><span>74% match</span><span>32% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="showSchoolModal('UCD')">
+        <div class="sc-name">UC Davis</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Davis, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-amber">Good match</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:79%;background:#ef9f27"></div></div>
+        <div class="match-meta"><span>79% match</span><span>41% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="showSchoolModal('UCSC')">
+        <div class="sc-name">UC Santa Cruz</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Santa Cruz, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-blue">Possible match</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:70%;background:#64748b"></div></div>
+        <div class="match-meta"><span>70% match</span><span>47% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="showSchoolModal('UCR')">
+        <div class="sc-name">UC Riverside</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Riverside, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-blue">Possible match</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:68%;background:#64748b"></div></div>
+        <div class="match-meta"><span>68% match</span><span>61% acceptance</span></div>
+      </div>
+
+      <div class="school-card" onclick="showSchoolModal('UCM')">
+        <div class="sc-name">UC Merced</div>
+        <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Merced, CA</div>
+        <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-blue">Possible match</span></div>
+        <div class="match-bar"><div class="match-fill" style="width:65%;background:#64748b"></div></div>
+        <div class="match-meta"><span>65% match</span><span>74% acceptance</span></div>
       </div>
 
     </div>
