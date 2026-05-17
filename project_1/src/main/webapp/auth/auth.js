@@ -545,3 +545,105 @@ function closeSchoolModal() {
         modal.style.pointerEvents = 'none';
     }
 }
+
+// ==========================================
+// 编辑选校逻辑 (Edit Selected Schools)
+// ==========================================
+
+function openEditSchoolsModal() {
+    let modal = document.getElementById('editSchoolsModal');
+
+    // 如果还没创建过这个弹窗，就动态创建一个
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'editSchoolsModal';
+        modal.style.cssText = `
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+            background: rgba(0,0,0,0.5); display: flex; justify-content: center; 
+            align-items: center; z-index: 9999; opacity: 0; pointer-events: none; 
+            transition: opacity 0.2s ease;
+        `;
+        document.body.appendChild(modal);
+    }
+
+    // 获取当前 localStorage 里已经选好的学校
+    const profile = JSON.parse(localStorage.getItem("transferHubProfile") || "{}");
+    const selectedCampuses = profile.campuses || [];
+
+    // 所有的 9 所 UC 学校列表，与 schoolInfo 中的 Key 保持完全一致
+    const allUCs = [
+        { id: "UCB", name: "UC Berkeley" },
+        { id: "UCLA", name: "UCLA" },
+        { id: "UCSB", name: "UC Santa Barbara" },
+        { id: "UCSD", name: "UC San Diego" },
+        { id: "UCI", name: "UC Irvine" },
+        { id: "UCD", name: "UC Davis" },
+        { id: "UCSC", name: "UC Santa Cruz" },
+        { id: "UCR", name: "UC Riverside" },
+        { id: "UCM", name: "UC Merced" }
+    ];
+
+    // 生成 Checkbox 列表，如果存在于 selectedCampuses 中，就默认打上勾
+    const checkboxesHtml = allUCs.map(function(uc) {
+        const isChecked = selectedCampuses.includes(uc.id) ? "checked" : "";
+        return `
+            <label style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 15px; cursor: pointer; padding: 4px 0;">
+                <input type="checkbox" name="edit_uc" value="${uc.id}" ${isChecked} style="width: 18px; height: 18px; cursor: pointer;">
+                ${uc.name}
+            </label>
+        `;
+    }).join("");
+
+    // 将内容填入 Modal
+    modal.innerHTML = `
+        <div style="background: white; padding: 24px; border-radius: 12px; width: 90%; max-width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative;">
+            <button onclick="closeEditSchoolsModal()" style="position: absolute; top: 12px; right: 12px; border: none; background: #f0f0f0; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-weight: bold; color: #333; display: flex; justify-content: center; align-items: center;">✕</button>
+            <h2 style="margin-top: 0; margin-bottom: 20px; color: #1a1a1a; font-size: 20px;">Edit Selected Schools</h2>
+            
+            <div style="max-height: 300px; overflow-y: auto; margin-bottom: 20px; padding-right: 10px; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding-top: 12px;">
+                ${checkboxesHtml}
+            </div>
+            
+            <button onclick="saveEditedSchools()" style="width: 100%; padding: 12px; background: #1a6fc4; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: background 0.2s;">Save Changes</button>
+        </div>
+    `;
+
+    // 展现弹窗
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'auto';
+}
+
+function closeEditSchoolsModal() {
+    const modal = document.getElementById('editSchoolsModal');
+    if (modal) {
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+    }
+}
+
+function saveEditedSchools() {
+    // 获取所有被打勾的学校 ID
+    const checkedBoxes = document.querySelectorAll('input[name="edit_uc"]:checked');
+    const newSelection = Array.from(checkedBoxes).map(function(cb) {
+        return cb.value;
+    });
+
+    if (newSelection.length === 0) {
+        alert("Please select at least one UC campus.");
+        return;
+    }
+
+    // 获取并更新 LocalStorage
+    const profile = JSON.parse(localStorage.getItem("transferHubProfile") || "{}");
+    profile.campuses = newSelection;
+    localStorage.setItem("transferHubProfile", JSON.stringify(profile));
+
+    // 关闭弹窗 -> 触发 Toast 提示 -> 重新加载页面上的学校卡片 (无刷新更新)
+    closeEditSchoolsModal();
+    toast("Schools updated successfully!");
+
+    // 调用你 auth.js 里的现有函数，重新渲染卡片
+    if (typeof loadSelectedSchools === "function") {
+        loadSelectedSchools();
+    }
+}
