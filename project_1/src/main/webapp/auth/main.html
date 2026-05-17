@@ -30,8 +30,8 @@
     <div class="nav-links">
         <button class="nav-btn active"><i class="ti ti-home"></i>Main</button>
         <button class="nav-btn" onclick="toast('Postings page')"><i class="ti ti-layout-list"></i>Postings</button>
-        <button class="nav-btn" onclick="toast('Network page')"><i class="ti ti-users"></i>Network</button>
-        <button class="nav-btn" onclick="toast('Events page')"><i class="ti ti-calendar-event"></i>Events</button>
+        <button class="nav-btn" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>Network</button>
+        <button class="nav-btn" onclick="window.location.href='events.html'"><i class="ti ti-calendar-event"></i>Events</button>
         <button class="nav-btn" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Schools</button>
     </div>
     <div class="avatar" title="Profile">AC</div>
@@ -51,9 +51,9 @@
         <div class="sb-label">Browse</div>
         <button class="sb-item active"><i class="ti ti-home"></i>Main page</button>
         <button class="sb-item" onclick="toast('Users\' Postings')"><i class="ti ti-layout-list"></i>Users' postings</button>
-        <button class="sb-item" onclick="toast('Network page')"><i class="ti ti-users"></i>My Network</button>
+        <button class="sb-item" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>My Network</button>
         <button class="sb-item" onclick="toast('Suggestions')"><i class="ti ti-user-search"></i>Suggestions</button>
-        <button class="sb-item" onclick="toast('Events')"><i class="ti ti-calendar-event"></i>Events</button>
+        <button class="sb-item" onclick="window.location.href='events.html'"><i class="ti ti-calendar-event"></i>Events</button>
 
         <div class="sb-divider"></div>
 
@@ -112,7 +112,7 @@
         <!-- B. Peer Suggestions (My Network) -->
         <div class="sec-header">
             <h3>Peer suggestions</h3>
-            <button class="see-all" onclick="toast('All suggestions →')">See all →</button>
+            <button class="see-all" onclick="window.location.href='network.html'">See all →</button>
         </div>
         <div class="card" style="margin-bottom:8px">
             <div class="peer-row">
@@ -175,7 +175,7 @@
         <!-- D. Events Near You -->
         <div class="sec-header">
             <h3>Events near you</h3>
-            <button class="see-all" onclick="toast('All events →')">See all →</button>
+            <button class="see-all" onclick="window.location.href='events.html'">See all →</button>
         </div>
         <div class="card" style="margin-bottom:8px">
             <div class="event-row">

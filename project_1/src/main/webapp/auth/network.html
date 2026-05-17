@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transfer Hub — Network</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+
+<body class="app-page">
+<nav>
+  <a class="logo" href="main.html">
+    <div class="logo-icon">TH</div>
+    Transfer Hub
+  </a>
+
+  <div class="search-wrap">
+    <i class="ti ti-search"></i>
+    <input type="text" placeholder="Search students, colleges, majors...">
+  </div>
+
+  <div class="nav-links">
+    <button class="nav-btn" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main</button>
+    <button class="nav-btn" onclick="toast('Postings page')"><i class="ti ti-layout-list"></i>Postings</button>
+    <button class="nav-btn active" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>Network</button>
+    <button class="nav-btn" onclick="window.location.href='events.html'"><i class="ti ti-calendar-event"></i>Events</button>
+    <button class="nav-btn" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Schools</button>
+  </div>
+
+  <div class="avatar" title="Profile">AC</div>
+</nav>
+
+<div class="body">
+  <aside>
+    <div class="profile-box">
+      <div class="profile-av">AC</div>
+      <div class="profile-name">Alex Chen</div>
+      <div class="profile-sub">Irvine Valley College</div>
+      <div class="profile-gpa">GPA 3.7 · CS · Resident</div>
+    </div>
+
+    <div class="sb-label">Browse</div>
+    <button class="sb-item" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main page</button>
+    <button class="sb-item" onclick="toast('Users\' Postings')"><i class="ti ti-layout-list"></i>Users' postings</button>
+    <button class="sb-item active" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>My Network</button>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-label">Transfer Tools</div>
+    <button class="sb-item" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Transfer schools</button>
+    <button class="sb-item" onclick="toast('Acceptance Rates')"><i class="ti ti-chart-bar"></i>Acceptance rates</button>
+    <button class="sb-item" onclick="window.open('https://assist.org','_blank')"><i class="ti ti-external-link"></i>ASSIST database</button>
+  </aside>
+
+  <main>
+    <div class="sec-header">
+      <h3>My Network</h3>
+      <button class="conn-btn" style="padding: 4px 12px;" onclick="toast('Filter by Major')"><i class="ti ti-filter"></i> CS Majors</button>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="peer-row">
+        <div class="peer-av" style="background:#e8f2fc;color:#1a6fc4">MR</div>
+        <div>
+          <div class="peer-name">Maya Rodriguez</div>
+          <div class="peer-sub">De Anza CC · GPA 3.8 · CS · Resident</div>
+          <div class="peer-targets">→ UCLA, UC Berkeley</div>
+        </div>
+        <button class="conn-btn" onclick="toast('Request sent to Maya!')">Connect</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="peer-row">
+        <div class="peer-av" style="background:#eaf3de;color:#3b6d11">JK</div>
+        <div>
+          <div class="peer-name">James Kim</div>
+          <div class="peer-sub">Foothill CC · GPA 3.6 · CS · International</div>
+          <div class="peer-targets">→ UCSD, UCI</div>
+        </div>
+        <button class="conn-btn" onclick="toast('Request sent to James!')">Connect</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="peer-row">
+        <div class="peer-av" style="background:#faeeda;color:#854f0b">SP</div>
+        <div>
+          <div class="peer-name">Sofia Patel</div>
+          <div class="peer-sub">Saddleback CC · GPA 3.9 · CS · Resident</div>
+          <div class="peer-targets">→ UCLA, USC</div>
+        </div>
+        <button class="conn-btn" onclick="toast('Request sent to Sofia!')">Connect</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="peer-row">
+        <div class="peer-av" style="background:#f3e8fc;color:#6b1ac4">DW</div>
+        <div>
+          <div class="peer-name">David Wang</div>
+          <div class="peer-sub">Pasadena City College · GPA 3.5 · CS · Resident</div>
+          <div class="peer-targets">→ UCSB, UCSC</div>
+        </div>
+        <button class="conn-btn" onclick="toast('Request sent to David!')">Connect</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="right-bar">
+    <div class="rb-title">Connections</div>
+    <div class="deadline-row"><span>Pending Requests</span><span style="color:#1d9e75;font-weight:500">2</span></div>
+    <div class="deadline-row"><span>Total Connections</span><span style="font-weight:500">14</span></div>
+    <button class="quick-btn" style="margin-top: 12px;" onclick="toast('Invite friends')"><i class="ti ti-user-plus"></i>Invite peers</button>
+  </div>
+</div>
+
+<div class="toast" id="toast-el"></div>
+<script src="auth.js"></script>
+
+</body>
+</html>
