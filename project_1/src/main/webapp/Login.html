@@ -13,7 +13,11 @@
         <h1>Welcome Back</h1>
         <p>Log in to continue.</p>
 
-        <form action="/Login" method="post">
+        <P id="error-message" style="color:red; display:none; text-align:center; margin-bottom:10px;">
+            Incorrect email or password
+        </P>
+
+        <form action="Login" method="post">
             <label>Email</label>
             <input type="email" name="email" required>
 
@@ -32,6 +36,14 @@
         </div>
     </div>
 </div>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const errorMsg = document.getElementById("error-message");
 
+    if(params.get("error") === "true" && errorMsg){
+        errorMsg.style.display= "block";
+    }
+
+</script>
 </body>
 </html>
