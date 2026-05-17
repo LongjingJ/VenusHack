@@ -25,6 +25,11 @@
             </div>
 
             <button type="submit">Login</button>
+
+            <p id="error-message" style="color: red; display: none;">
+                Invalid email or password.
+            </p>
+
         </form>
 
         <div class="back-link">
@@ -32,6 +37,12 @@
         </div>
     </div>
 </div>
+<script>
+    const params = new URLSearchParams(window.location.search);
 
+    if (params.get("error") === "true") {
+        document.getElementById("error-message").style.display = "block";
+    }
+</script>
 </body>
 </html>

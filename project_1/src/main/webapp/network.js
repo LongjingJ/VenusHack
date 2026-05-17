@@ -21,6 +21,14 @@ fetch("profile")
         console.error("Error loading profile:", error);
     });
 
+document.getElementById("nav-avatar").addEventListener("click", function () {
+    window.location.href = "profile.html";
+});
+
+document.getElementById("profile-avatar").addEventListener("click", function () {
+    window.location.href = "profile.html";
+});
+
 fetch("network")
     .then(response => response.json())
     .then(data => {
