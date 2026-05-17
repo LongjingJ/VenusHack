@@ -16,9 +16,6 @@
 
         <form onsubmit="return handleSignupSubmit()">
 
-            <!-- =========================
-                 STEP 1: CREATE ACCOUNT
-                 ========================= -->
             <div id="accountStep">
                 <div class="step-label">Step 1 of 3: Create Account</div>
 
@@ -54,9 +51,6 @@
                 </button>
             </div>
 
-            <!-- =========================
-                 STEP 2: CHOOSE ROLE
-                 ========================= -->
             <div id="roleStep" class="hidden">
                 <div class="step-label">Step 2 of 3: Choose Your Role</div>
 
@@ -83,25 +77,30 @@
                 </div>
             </div>
 
-            <!-- =========================
-                 STEP 3A: STUDENT INFO
-                 ========================= -->
             <div id="studentStep" class="hidden">
                 <div class="step-label">Step 3 of 3: Student Information</div>
 
                 <label for="cc_school">Current Community College</label>
-                <input
-                        type="text"
-                        id="cc_school"
-                        name="cc_school"
-                        placeholder="Example: Irvine Valley College">
+                <select id="cc_school" name="cc_school" style="width: 100%; padding: 12px; margin-bottom: 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: #f9fafb;">
+                    <option value="" disabled selected>Select your college...</option>
+                    <option value="East Los Angeles College">East Los Angeles College</option>
+                    <option value="Los Angeles City College">Los Angeles City College</option>
+                    <option value="Los Angeles Harbor College">Los Angeles Harbor College</option>
+                    <option value="Los Angeles Mission College">Los Angeles Mission College</option>
+                    <option value="Los Angeles Pierce College">Los Angeles Pierce College</option>
+                    <option value="Los Angeles Southwest College">Los Angeles Southwest College</option>
+                    <option value="Los Angeles Trade-Technical College">Los Angeles Trade-Technical College</option>
+                    <option value="Los Angeles Valley College">Los Angeles Valley College</option>
+                    <option value="West Los Angeles College">West Los Angeles College</option>
+                </select>
 
                 <label for="major">Current Major</label>
-                <input
-                        type="text"
-                        id="major"
-                        name="major"
-                        placeholder="Example: Computer Science">
+                <select id="major" name="major" style="width: 100%; padding: 12px; margin-bottom: 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: #f9fafb;">
+                    <option value="" disabled selected>Select your major...</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Math">Math</option>
+                </select>
 
                 <label>Interested UC Campuses</label>
                 <small>You can choose more than one.</small>
@@ -173,20 +172,18 @@
                 </div>
             </div>
 
-            <!-- =========================
-                 STEP 3B: PROFESSOR INFO
-                 ========================= -->
             <div id="professorStep" class="hidden">
                 <div class="step-label">
                     Step 3 of 3: Professor / Advisor Information
                 </div>
 
                 <label for="department">Department</label>
-                <input
-                        type="text"
-                        id="department"
-                        name="department"
-                        placeholder="Example: Computer Science Department">
+                <select id="department" name="department">
+                    <option value="" disabled selected>Select your department...</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Math">Math</option>
+                </select>
 
                 <button type="submit">Finish Professor Sign Up</button>
 
