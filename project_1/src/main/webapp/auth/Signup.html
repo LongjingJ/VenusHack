@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>Create Account</h1>
+        <p>Create your account and tell us about yourself.</p>
+
+        <form action="/Signup" method="post" onsubmit="return validateSignup()">
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Create Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label>Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirm_password" required>
+
+            <label>Are you a student or professor?</label>
+            <select id="role" name="role" onchange="showRoleQuestions()" required>
+                <option value="">Select one</option>
+                <option value="student">Student</option>
+                <option value="professor">Professor</option>
+            </select>
+
+            <!-- Student Section -->
+            <div id="studentSection" class="hidden">
+                <label>Community College</label>
+                <input type="text"
+                       name="cc_school"
+                       placeholder="Example: Irvine Valley College">
+
+                <label>Current Major</label>
+                <input type="text"
+                       name="major"
+                       placeholder="Example: Computer Science">
+            </div>
+
+            <!-- Professor Section -->
+            <div id="professorSection" class="hidden">
+                <label>Department</label>
+                <input type="text"
+                       name="department"
+                       placeholder="Example: Computer Science">
+            </div>
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <div class="back-link">
+            <a href="Welcome.html">← Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>
