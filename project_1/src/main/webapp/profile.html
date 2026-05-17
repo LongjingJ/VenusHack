@@ -40,6 +40,37 @@
             <div class="profile-sub" id="profile-school">Loading school...</div>
             <div class="profile-sub" id="profile-major">Loading major...</div>
         </div>
+
+        <div class="sb-divider"></div>
+
+        <div class="rb-title">Your progress</div>
+        <div class="prog-box">
+            <div class="prog-label">Transfer readiness</div>
+            <div class="prog-bar">
+                <div class="prog-fill" style="width:72%"></div>
+            </div>
+            <div class="prog-pct">72% complete</div>
+            <div class="prog-hint">Missing: TAG app, 2 recs</div>
+        </div>
+
+        <div class="rb-title">Deadlines</div>
+        <div class="deadline-row">
+            <span>UC application</span>
+            <span style="color:#e24b4a;font-weight:500">Nov 30</span>
+        </div>
+        <div class="deadline-row">
+            <span>TAG deadline</span>
+            <span style="color:#ef9f27;font-weight:500">Sep 30</span>
+        </div>
+        <div class="deadline-row">
+            <span>IGETC petition</span>
+            <span>Jun 15</span>
+        </div>
+
+        <button class="logout-btn" onclick="window.location.href='Logout'">
+            <i class="ti ti-logout"></i>
+            Log out
+        </button>
     </aside>
 
     <main>
@@ -72,40 +103,7 @@
             <h3>Recommended Schools</h3>
         </div>
 
-        <div class="school-grid">
-            <div class="school-card">
-                <div class="sc-name">UC Irvine</div>
-                <div class="sc-loc">
-                    <i class="ti ti-map-pin" style="font-size:10px"></i> Irvine, CA
-                </div>
-                <div class="badge-row">
-                    <span class="badge b-blue">UC</span>
-                    <span class="badge b-green">Recommended</span>
-                </div>
-            </div>
-
-            <div class="school-card">
-                <div class="sc-name">UCLA</div>
-                <div class="sc-loc">
-                    <i class="ti ti-map-pin" style="font-size:10px"></i> Los Angeles, CA
-                </div>
-                <div class="badge-row">
-                    <span class="badge b-blue">UC</span>
-                    <span class="badge b-green">Recommended</span>
-                </div>
-            </div>
-
-            <div class="school-card">
-                <div class="sc-name">UC San Diego</div>
-                <div class="sc-loc">
-                    <i class="ti ti-map-pin" style="font-size:10px"></i> La Jolla, CA
-                </div>
-                <div class="badge-row">
-                    <span class="badge b-blue">UC</span>
-                    <span class="badge b-green">Recommended</span>
-                </div>
-            </div>
-        </div>
+        <div class="school-grid" id="recommended-schools"></div>
 
     </main>
 

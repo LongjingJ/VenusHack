@@ -289,6 +289,11 @@ nav {
     cursor: pointer;
 }
 
+.avatar,
+.profile-av {
+    cursor: pointer;
+}
+
 .avatar:focus,
 .profile-av:focus {
     outline: 3px solid rgba(13, 110, 253, 0.25);
@@ -603,6 +608,25 @@ main {
     gap: 10px;
     padding: 14px 0;
     border-bottom: 1px solid #edf0f5;
+}
+
+.logout-btn {
+    width: 100%;
+    margin-top: 18px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    background: #fff1f2;
+    color: #dc2626;
+    border: 1px solid #fecdd3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.logout-btn:hover {
+    background: #ffe4e6;
 }
 
 .app-page .prog-box {

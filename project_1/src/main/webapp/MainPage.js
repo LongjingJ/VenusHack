@@ -57,6 +57,10 @@ document.getElementById("nav-avatar").addEventListener("click", function () {
     window.location.href = "profile.html";
 });
 
+document.getElementById("profile-avatar").addEventListener("click", function () {
+    window.location.href = "profile.html";
+});
+
 function doSearch() {
     const query = document.getElementById("school-search").value.trim().toLowerCase();
     const section = document.getElementById("school-results-section");
