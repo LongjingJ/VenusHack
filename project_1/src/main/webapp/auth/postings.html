@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transfer Hub — Postings</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+<nav>
+  <a class="logo" href="main.html">
+    <div class="logo-icon">TH</div>
+    Transfer Hub
+  </a>
+
+  <div class="search-wrap">
+    <i class="ti ti-search"></i>
+    <input type="text" placeholder="Search posts and advice...">
+  </div>
+
+  <div class="nav-links">
+    <button class="nav-btn" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main</button>
+    <button class="nav-btn active" onclick="window.location.href='postings.html'"><i class="ti ti-layout-list"></i>Postings</button>
+    <button class="nav-btn" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>Network</button>
+    <button class="nav-btn" onclick="window.location.href='events.html'"><i class="ti ti-calendar-event"></i>Events</button>
+    <button class="nav-btn" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Schools</button>
+  </div>
+
+  <div class="avatar" title="Profile">AC</div>
+</nav>
+
+<div class="body">
+  <aside>
+    <div class="profile-box">
+      <div class="profile-av">AC</div>
+      <div class="profile-name">Alex Chen</div>
+      <div class="profile-sub">Irvine Valley College</div>
+      <div class="profile-gpa">GPA 3.7 · CS · Resident</div>
+    </div>
+
+    <div class="sb-label">Browse</div>
+    <button class="sb-item" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main page</button>
+    <button class="sb-item active" onclick="window.location.href='postings.html'"><i class="ti ti-layout-list"></i>Users' postings</button>
+    <button class="sb-item" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>My Network</button>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-label">Transfer Tools</div>
+    <button class="sb-item" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Transfer schools</button>
+    <button class="sb-item" onclick="toast('Acceptance Rates')"><i class="ti ti-chart-bar"></i>Acceptance rates</button>
+    <button class="sb-item" onclick="window.open('https://assist.org','_blank')"><i class="ti ti-external-link"></i>ASSIST database</button>
+  </aside>
+
+  <main>
+    <div class="sec-header">
+      <h3>Community Postings</h3>
+    </div>
+
+    <div class="card" style="margin-bottom: 24px;">
+      <input type="text" placeholder="Ask a question or share transfer advice..."
+             style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; box-sizing: border-box; background: #f9fafb; outline: none;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+        <div style="color: #666; font-size: 14px; cursor: pointer;" onclick="toast('Attach file')">
+          <i class="ti ti-photo" style="vertical-align: middle;"></i> Attach Image
+        </div>
+        <button class="conn-btn" style="padding: 6px 16px;" onclick="toast('Post submitted!')">Post</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 16px;">
+      <div class="peer-row" style="margin-bottom: 12px;">
+        <div class="peer-av" style="background:#fce8e8;color:#c41a1a">TW</div>
+        <div>
+          <div class="peer-name">Tom Wang</div>
+          <div class="peer-sub">2 hours ago · Financial Aid</div>
+        </div>
+      </div>
+      <div style="font-size: 14px; color: #333; margin-bottom: 16px; line-height: 1.5;">
+        Has anyone successfully appealed a financial aid decision at UCLA after transferring? I just got my package and it's lower than expected. Any tips on what documentation they look for?
+      </div>
+      <div style="display: flex; gap: 16px; color: #666; font-size: 13px;">
+        <span style="cursor:pointer;" onclick="toast('Liked!')"><i class="ti ti-thumb-up"></i> 24 Likes</span>
+        <span style="cursor:pointer;" onclick="toast('View comments')"><i class="ti ti-message-circle"></i> 8 Replies</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 16px;">
+      <div class="peer-row" style="margin-bottom: 12px;">
+        <div class="peer-av" style="background:#eaf3de;color:#3b6d11">ES</div>
+        <div>
+          <div class="peer-name">Emily Smith</div>
+          <div class="peer-sub">5 hours ago · Course Requirements</div>
+        </div>
+      </div>
+      <div style="font-size: 14px; color: #333; margin-bottom: 16px; line-height: 1.5;">
+        Reminder for everyone targeting UC Berkeley L&S: Make sure you finish your full IGETC *before* the spring semester ends prior to transfer. They do not allow partial IGETC for L&S admits!
+      </div>
+      <div style="display: flex; gap: 16px; color: #666; font-size: 13px;">
+        <span style="cursor:pointer;" onclick="toast('Liked!')"><i class="ti ti-thumb-up"></i> 112 Likes</span>
+        <span style="cursor:pointer;" onclick="toast('View comments')"><i class="ti ti-message-circle"></i> 15 Replies</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 16px;">
+      <div class="peer-row" style="margin-bottom: 12px;">
+        <div class="peer-av" style="background:#e8f2fc;color:#1a6fc4">JL</div>
+        <div>
+          <div class="peer-name">Jason Lee</div>
+          <div class="peer-sub">Yesterday · Application Tips</div>
+        </div>
+      </div>
+      <div style="font-size: 14px; color: #333; margin-bottom: 16px; line-height: 1.5;">
+        For the PIQs (Personal Insight Questions), don't just list your resume. Pick one specific project or challenge and dive deep into how it shaped your decision to major in CS. Quality > Quantity.
+      </div>
+      <div style="display: flex; gap: 16px; color: #666; font-size: 13px;">
+        <span style="cursor:pointer;" onclick="toast('Liked!')"><i class="ti ti-thumb-up"></i> 89 Likes</span>
+        <span style="cursor:pointer;" onclick="toast('View comments')"><i class="ti ti-message-circle"></i> 22 Replies</span>
+      </div>
+    </div>
+  </main>
+
+  <div class="right-bar">
+    <div class="rb-title">Trending Topics</div>
+    <div class="deadline-row"><span style="cursor: pointer; color:#1a6fc4;" onclick="toast('Showing #IGETC')">#IGETC</span></div>
+    <div class="deadline-row"><span style="cursor: pointer; color:#1a6fc4;" onclick="toast('Showing #TAG_Agreement')">#TAG_Agreement</span></div>
+    <div class="deadline-row"><span style="cursor: pointer; color:#1a6fc4;" onclick="toast('Showing #FinancialAid')">#FinancialAid</span></div>
+    <div class="deadline-row"><span style="cursor: pointer; color:#1a6fc4;" onclick="toast('Showing #CS_Admissions')">#CS_Admissions</span></div>
+
+    <div class="rb-title" style="margin-top: 24px;">Top Contributors</div>
+    <div class="peer-row" style="margin-top: 12px; margin-bottom: 12px;">
+      <div class="peer-av" style="background:#faeeda;color:#854f0b; width: 32px; height: 32px; font-size: 12px;">SP</div>
+      <div>
+        <div class="peer-name" style="font-size: 13px;">Sofia Patel</div>
+      </div>
+    </div>
+    <div class="peer-row">
+      <div class="peer-av" style="background:#eaf3de;color:#3b6d11; width: 32px; height: 32px; font-size: 12px;">ES</div>
+      <div>
+        <div class="peer-name" style="font-size: 13px;">Emily Smith</div>
+      </div>
+    </div>
+  </div>
+</div> <div class="toast" id="toast-el"></div>
+<script src="../js/app.js"></script>
+
+</body>
+</html>
