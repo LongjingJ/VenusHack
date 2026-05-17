@@ -1,208 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account</title>
+
     <link rel="stylesheet" href="auth.css">
 </head>
+
 <body>
 
 <div class="container">
+
     <div class="card large-card">
 
-        <h1>Create Your Profile</h1>
-        <p>We’ll use this information to personalize your UC transfer guidance.</p>
+        <h1>Create Account</h1>
 
-        <form onsubmit="return handleSignupSubmit()">
+        <p>
+            Create your Transfer Hub profile.
+        </p>
 
-            <div id="accountStep">
-                <div class="step-label">Step 1 of 3: Create Account</div>
+        <form action="CreateAccount"
+              method="post">
 
-                <label for="email">Email</label>
-                <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="example@gmail.com"
-                        required>
-                <small>We’ll use this to save your transfer plan.</small>
+            <label>First Name</label>
 
-                <label for="password">Create Password</label>
-                <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="At least 8 characters"
-                        minlength="8"
-                        required>
+            <input type="text"
+                   name="first_name"
+                   required>
 
-                <label for="confirmPassword">Confirm Password</label>
-                <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirm_password"
-                        placeholder="Enter your password again"
-                        minlength="8"
-                        required>
+            <label>Last Name</label>
 
-                <button type="button" onclick="goToRoleStep()">
-                    Create Account
-                </button>
-            </div>
+            <input type="text"
+                   name="last_name"
+                   required>
 
-            <div id="roleStep" class="hidden">
-                <div class="step-label">Step 2 of 3: Choose Your Role</div>
+            <label>Email</label>
 
-                <h2>Tell us who you are</h2>
-                <p>This helps us ask the right questions.</p>
+            <input type="email"
+                   name="email"
+                   required>
 
-                <button type="button" onclick="chooseRole('student')">
-                    I am a CC student planning to transfer
-                </button>
+            <label>Password</label>
 
-                <button
-                        type="button"
-                        class="secondary-button"
-                        onclick="chooseRole('professor')">
-                    I am a professor or advisor helping students
-                </button>
+            <input type="password"
+                   name="password"
+                   minlength="8"
+                   required>
 
-                <input type="hidden" id="role" name="role">
+            <label>Role</label>
 
-                <div class="back-link">
-                    <a href="#" onclick="backToAccountStep(); return false;">
-                        ← Back
-                    </a>
-                </div>
-            </div>
+            <select name="role"
+                    id="role-select"
+                    required>
 
-            <div id="studentStep" class="hidden">
-                <div class="step-label">Step 3 of 3: Student Information</div>
+                <option value="">
+                    Select role
+                </option>
 
-                <label for="cc_school">Current Community College</label>
-                <select id="cc_school" name="cc_school" style="width: 100%; padding: 12px; margin-bottom: 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: #f9fafb;">
-                    <option value="" disabled selected>Select your college...</option>
-                    <option value="East Los Angeles College">East Los Angeles College</option>
-                    <option value="Los Angeles City College">Los Angeles City College</option>
-                    <option value="Los Angeles Harbor College">Los Angeles Harbor College</option>
-                    <option value="Los Angeles Mission College">Los Angeles Mission College</option>
-                    <option value="Los Angeles Pierce College">Los Angeles Pierce College</option>
-                    <option value="Los Angeles Southwest College">Los Angeles Southwest College</option>
-                    <option value="Los Angeles Trade-Technical College">Los Angeles Trade-Technical College</option>
-                    <option value="Los Angeles Valley College">Los Angeles Valley College</option>
-                    <option value="West Los Angeles College">West Los Angeles College</option>
+                <option value="cc_student">
+                    CC Student
+                </option>
+
+                <option value="uc_student">
+                    UC Student
+                </option>
+
+                <option value="professor">
+                    Professor
+                </option>
+
+            </select>
+
+            <label>Current School</label>
+
+            <select name="school_id"
+                    required>
+
+                <option value="">
+                    Select school
+                </option>
+
+                <option value="1">
+                    East Los Angeles College
+                </option>
+
+                <option value="2">
+                    Los Angeles City College
+                </option>
+
+                <option value="3">
+                    Los Angeles Harbor College
+                </option>
+
+                <option value="4">
+                    Los Angeles Mission College
+                </option>
+
+                <option value="5">
+                    Los Angeles Pierce College
+                </option>
+
+                <option value="6">
+                    Los Angeles Southwest College
+                </option>
+
+                <option value="7">
+                    Los Angeles Trade-Technical College
+                </option>
+
+                <option value="8">
+                    Los Angeles Valley College
+                </option>
+
+                <option value="9">
+                    West Los Angeles College
+                </option>
+
+                <option value="10">
+                    UC Berkeley
+                </option>
+
+                <option value="11">
+                    UCLA
+                </option>
+
+                <option value="12">
+                    UC Santa Barbara
+                </option>
+
+                <option value="13">
+                    UC San Diego
+                </option>
+
+                <option value="14">
+                    UC Irvine
+                </option>
+
+                <option value="15">
+                    UC Davis
+                </option>
+
+                <option value="16">
+                    UC Santa Cruz
+                </option>
+
+                <option value="17">
+                    UC Riverside
+                </option>
+
+                <option value="18">
+                    UC Merced
+                </option>
+
+            </select>
+
+            <label id="major-label">
+                Major
+            </label>
+
+            <select name="major_id"
+                    required>
+
+                <option value="">
+                    Select...
+                </option>
+
+                <option value="1">
+                    Computer Science
+                </option>
+
+                <option value="2">
+                    Data Science
+                </option>
+
+                <option value="3">
+                    Physics
+                </option>
+
+            </select>
+
+            <div id="interested-school-section">
+
+                <label>
+                    Interested UC School
+                </label>
+
+                <select name="interested_school_id">
+
+                    <option value="">
+                        Select UC
+                    </option>
+
+                    <option value="10">
+                        UC Berkeley
+                    </option>
+
+                    <option value="11">
+                        UCLA
+                    </option>
+
+                    <option value="12">
+                        UC Santa Barbara
+                    </option>
+
+                    <option value="13">
+                        UC San Diego
+                    </option>
+
+                    <option value="14">
+                        UC Irvine
+                    </option>
+
+                    <option value="15">
+                        UC Davis
+                    </option>
+
+                    <option value="16">
+                        UC Santa Cruz
+                    </option>
+
+                    <option value="17">
+                        UC Riverside
+                    </option>
+
+                    <option value="18">
+                        UC Merced
+                    </option>
+
                 </select>
 
-                <label for="major">Current Major</label>
-                <select id="major" name="major" style="width: 100%; padding: 12px; margin-bottom: 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: #f9fafb;">
-                    <option value="" disabled selected>Select your major...</option>
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="Physics">Physics</option>
-                    <option value="Math">Math</option>
-                </select>
-
-                <label>Interested UC Campuses</label>
-                <small>You can choose more than one.</small>
-
-                <div class="uc-grid">
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCB">
-                        <span class="uc-logo">🐻</span>
-                        <span>UC Berkeley</span>
-                    </label>
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCLA">
-                        <span class="uc-logo">🏀</span>
-                        <span>UCLA</span>
-                    </label>
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCI">
-                        <span class="uc-logo">🐜</span>
-                        <span>UC Irvine</span>
-                    </label>
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCSD">
-                        <span class="uc-logo">🔱</span>
-                        <span>UC San Diego</span>
-                    </label>
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCSB">
-                        <span class="uc-logo">🌊</span>
-                        <span>UC Santa Barbara</span>
-                    </label>
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCD">
-                        <span class="uc-logo">🐴</span>
-                        <span>UC Davis</span>
-                    </label>
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCSC">
-                        <span class="uc-logo">🐌</span>
-                        <span>UC Santa Cruz</span>
-                    </label>
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCR">
-                        <span class="uc-logo">🛡️</span>
-                        <span>UC Riverside</span>
-                    </label>
-
-                    <label class="uc-card">
-                        <input type="checkbox" name="uc_campuses" value="UCM">
-                        <span class="uc-logo">🐱</span>
-                        <span>UC Merced</span>
-                    </label>
-
-                </div>
-
-                <button type="submit">Finish Student Sign Up</button>
-
-                <div class="back-link">
-                    <a href="#" onclick="backToRoleStep(); return false;">
-                        ← Back
-                    </a>
-                </div>
             </div>
 
-            <div id="professorStep" class="hidden">
-                <div class="step-label">
-                    Step 3 of 3: Professor / Advisor Information
-                </div>
-
-                <label for="department">Department</label>
-                <select id="department" name="department">
-                    <option value="" disabled selected>Select your department...</option>
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="Physics">Physics</option>
-                    <option value="Math">Math</option>
-                </select>
-
-                <button type="submit">Finish Professor Sign Up</button>
-
-                <div class="back-link">
-                    <a href="#" onclick="backToRoleStep(); return false;">
-                        ← Back
-                    </a>
-                </div>
-            </div>
+            <button type="submit">
+                Create Account
+            </button>
 
         </form>
 
         <div class="back-link">
-            <a href="Welcome.html">← Back to Home</a>
+
+            <a href="Login.html">
+
+                Already have an account?
+
+            </a>
+
         </div>
 
     </div>
+
 </div>
 
-<script src="auth.js"></script>
+<script>
+
+    const roleSelect =
+        document.getElementById("role-select");
+
+    const majorLabel =
+        document.getElementById("major-label");
+
+    const interestedSchoolSection =
+        document.getElementById(
+            "interested-school-section"
+        );
+
+    roleSelect.addEventListener("change", () => {
+
+        if (roleSelect.value === "professor") {
+
+            majorLabel.textContent =
+                "Department";
+
+            interestedSchoolSection.style.display =
+                "none";
+
+        } else {
+
+            majorLabel.textContent =
+                "Major";
+
+            interestedSchoolSection.style.display =
+                "block";
+        }
+    });
+
+</script>
+
 </body>
 </html>

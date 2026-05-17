@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Hub — Home</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body class="app-page">
+
+<nav>
+    <a class="logo" href="MainPage.html">
+        <div class="logo-icon">TH</div>
+        Transfer Hub
+    </a>
+
+
+
+    <div style="display:flex; align-items:center; gap:8px;">
+        <div class="search-wrap" style="flex:1;">
+            <i class="ti ti-search"></i>
+            <input id="school-search" type="text" placeholder="Search schools...">
+        </div>
+        <button id="search-btn" class="nav-btn" style="height:46px; padding:0 18px; background:#3182ff; color:#fff; border-radius:9px; font-weight:600; white-space:nowrap;">
+            Search
+        </button>
+    </div>
+
+    <div class="nav-links">
+        <button class="nav-btn active" onclick="window.location.href='MainPage.html'">
+            <i class="ti ti-home"></i> Main
+        </button>
+        <button class="nav-btn" onclick="window.location.href='network.html'">
+            <i class="ti ti-users"></i> Network
+        </button>
+        <button class="nav-btn" onclick="window.location.href='events.html'">
+            <i class="ti ti-calendar-event"></i> Events
+        </button>
+    </div>
+
+    <a href="profile.html">
+        <div class="avatar" id="nav-avatar">--</div>
+    </a>
+</nav>
+
+<div class="body">
+
+    <aside>
+        <div class="profile-box">
+            <div class="profile-av" id="profile-avatar">--</div>
+            <div class="profile-name" id="profile-name">Loading...</div>
+            <div class="profile-sub" id="profile-school">Loading school...</div>
+            <div class="profile-sub" id="profile-major">Loading major...</div>
+        </div>
+
+        <div class="sb-label">Quick Links</div>
+        <button class="sb-item" onclick="window.location.href='network.html'">
+            <i class="ti ti-users"></i> Network
+        </button>
+        <button class="sb-item" onclick="window.location.href='events.html'">
+            <i class="ti ti-calendar-event"></i> Events
+        </button>
+    </aside>
+
+    <main>
+        <div id="school-results-section" style="display:none;">
+            <div class="sec-header">
+                <h3>School Results</h3>
+            </div>
+            <div id="school-results" class="school-grid"></div>
+        </div>
+
+        <div class="sec-header">
+            <h3>Recent Posts</h3>
+        </div>
+
+        <div id="posts-container"></div>
+    </main>
+
+</div>
+
+<script src="MainPage.js"></script>
+
+</body>
+</html>

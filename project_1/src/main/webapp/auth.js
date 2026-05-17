@@ -124,7 +124,7 @@ function handleSignupSubmit() {
 
     localStorage.setItem("transferHubProfile", JSON.stringify(profile));
 
-    window.location.href = "main.html";
+    window.location.href = "profile.html";
     return false;
 }
 
@@ -139,7 +139,7 @@ function handleLoginSubmit() {
         isLoggedIn: true
     }));
 
-    window.location.href = "main.html";
+    window.location.href = "profile.html";
     return false;
 }
 

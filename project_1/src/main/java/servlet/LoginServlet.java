@@ -6,63 +6,70 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.jasypt.util.password.StrongPasswordEncryptor;
 
 import java.io.IOException;
 import java.sql.*;
 
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+
+    protected void doPost(HttpServletRequest request,
+                          HttpServletResponse response)
             throws ServletException, IOException {
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
         String loginUser = System.getenv("DB_USER");
         String loginPassword = System.getenv("DB_PASSWORD");
         String loginUrl = System.getenv("DB_URL");
 
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-        } catch(ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
-        try{
+        try {
+
             Connection conn = DriverManager.getConnection(loginUrl, loginUser, loginPassword);
 
-            String query = "SELECT password FROM users WHERE email = ?";
+            String query = "SELECT password " +
+                            "FROM users " +
+                            "WHERE email = ?";
+
             PreparedStatement statement = conn.prepareStatement(query);
+
             statement.setString(1, email);
 
             ResultSet rs = statement.executeQuery();
 
-            if(rs.next()){
-                String encryptedPassword = rs.getString("password");
-                StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
-                boolean passwordMatch = encryptor.checkPassword(password, encryptedPassword);
+            if (rs.next()) {
 
-                if(passwordMatch){
+                String storedPassword = rs.getString("password");
+
+                boolean passwordMatch = password.equals(storedPassword);
+
+                if (passwordMatch) {
                     HttpSession session = request.getSession();
                     session.setAttribute("user", email);
                     response.sendRedirect("MainPage.html");
-                }else{
+                } else {
                     response.sendRedirect(request.getContextPath() + "/Login.html?error=true");
                 }
-            }
-            else {
+
+            } else {
+
                 response.sendRedirect(request.getContextPath() + "/Login.html?error=true");
             }
 
             rs.close();
             statement.close();
             conn.close();
+
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            response.setContentType("text/plain");
+            response.getWriter().println("ERROR: " + e.getMessage());
         }
-
-
-
     }
-
 }

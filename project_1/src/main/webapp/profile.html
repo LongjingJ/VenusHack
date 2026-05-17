@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer Hub — Profile</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body class="app-page">
+
+<nav>
+    <a class="logo" href="MainPage.html">
+        <div class="logo-icon">TH</div>
+        Transfer Hub
+    </a>
+
+    <div class="nav-links">
+        <button class="nav-btn" onclick="window.location.href='MainPage.html'">
+            <i class="ti ti-home"></i> Main
+        </button>
+        <button class="nav-btn" onclick="window.location.href='network.html'">
+            <i class="ti ti-users"></i> Network
+        </button>
+        <button class="nav-btn" onclick="window.location.href='events.html'">
+            <i class="ti ti-calendar-event"></i> Events
+        </button>
+    </div>
+
+    <div class="avatar" id="nav-avatar">--</div>
+</nav>
+
+<div class="body">
+
+    <aside>
+        <div class="profile-box">
+            <div class="profile-av" id="profile-avatar">--</div>
+            <div class="profile-name" id="profile-name">Loading...</div>
+            <div class="profile-sub" id="profile-school">Loading school...</div>
+            <div class="profile-sub" id="profile-major">Loading major...</div>
+        </div>
+    </aside>
+
+    <main>
+        <div class="sec-header">
+            <h3>Your Profile</h3>
+        </div>
+
+        <div class="card" style="width:auto; margin-bottom:16px;">
+            <h3 style="margin-bottom:14px; color:#1b2a41;">School Information</h3>
+
+            <div style="display:flex; align-items:center; gap:12px;">
+                <strong>Interested School:</strong>
+                <span id="profile-interested-school" style="color:#40516a;"></span>
+                <button id="interested-school-btn" class="conn-btn" style="display:none;"
+                        onclick="showInterestedSchoolInput()">
+                    <i class="ti ti-plus"></i> Add
+                </button>
+            </div>
+
+            <div id="interested-school-input-wrap" style="display:none; margin-top:12px;">
+                <input id="interested-school-input" type="text" placeholder="e.g. UC Irvine"
+                       style="width:60%; padding:8px 12px; border:1px solid #ccc; border-radius:7px; font-size:14px;">
+                <button class="conn-btn" style="margin-left:8px;" onclick="saveInterestedSchool()">Save</button>
+                <button class="conn-btn" style="margin-left:6px; background:#f5f7fb; color:#40516a;"
+                        onclick="cancelInterestedSchool()">Cancel</button>
+            </div>
+        </div>
+
+        <div class="sec-header">
+            <h3>Recommended Schools</h3>
+        </div>
+
+        <div class="school-grid">
+            <div class="school-card">
+                <div class="sc-name">UC Irvine</div>
+                <div class="sc-loc">
+                    <i class="ti ti-map-pin" style="font-size:10px"></i> Irvine, CA
+                </div>
+                <div class="badge-row">
+                    <span class="badge b-blue">UC</span>
+                    <span class="badge b-green">Recommended</span>
+                </div>
+            </div>
+
+            <div class="school-card">
+                <div class="sc-name">UCLA</div>
+                <div class="sc-loc">
+                    <i class="ti ti-map-pin" style="font-size:10px"></i> Los Angeles, CA
+                </div>
+                <div class="badge-row">
+                    <span class="badge b-blue">UC</span>
+                    <span class="badge b-green">Recommended</span>
+                </div>
+            </div>
+
+            <div class="school-card">
+                <div class="sc-name">UC San Diego</div>
+                <div class="sc-loc">
+                    <i class="ti ti-map-pin" style="font-size:10px"></i> La Jolla, CA
+                </div>
+                <div class="badge-row">
+                    <span class="badge b-blue">UC</span>
+                    <span class="badge b-green">Recommended</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</div>
+<script src="profile.js"></script>
+
+</body>
+</html>

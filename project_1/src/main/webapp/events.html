@@ -9,31 +9,25 @@
 
 <body class="app-page">
 <nav>
-  <a class="logo" href="main.html">
+  <a class="logo" href="MainPage.html">
     <div class="logo-icon">TH</div>
     Transfer Hub
   </a>
-  <div class="search-wrap">
-    <i class="ti ti-search"></i>
-    <input type="text" placeholder="Search events...">
-  </div>
   <div class="nav-links">
-    <button class="nav-btn" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main</button>
-    <button class="nav-btn" onclick="window.location.href='postings.html'"><i class="ti ti-layout-list"></i>Postings</button>
-    <button class="nav-btn" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>Network</button>
-    <button class="nav-btn active" onclick="window.location.href='events.html'"><i class="ti ti-calendar-event"></i>Events</button>
-    <button class="nav-btn" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Schools</button>
+    <button class="nav-btn" onclick="window.location.href='MainPage.html'"><i class="ti ti-home"></i> Main</button>
+    <button class="nav-btn" onclick="window.location.href='network.html'"><i class="ti ti-users"></i> Network</button>
+    <button class="nav-btn active"><i class="ti ti-calendar-event"></i> Events</button>
   </div>
-  <div class="avatar" title="Profile">AC</div>
+  <div class="avatar" id="nav-avatar">--</div>
 </nav>
 
 <div class="body">
   <aside>
     <div class="profile-box">
-      <div class="profile-av">AC</div>
-      <div class="profile-name">Alex Chen</div>
-      <div class="profile-sub">Irvine Valley College</div>
-      <div class="profile-gpa">GPA 3.7 · CS · Resident</div>
+      <div class="profile-av" id="profile-avatar">--</div>
+      <div class="profile-name" id="profile-name">Loading...</div>
+      <div class="profile-sub" id="profile-school">Loading school...</div>
+      <div class="profile-sub" id="profile-major">Loading major...</div>
     </div>
 
     <div class="sb-divider"></div>
@@ -66,49 +60,56 @@
   <main>
     <div class="sec-header">
       <h3>Upcoming Events</h3>
-      <button class="conn-btn" style="padding: 4px 12px;" onclick="toast('Calendar sync')"><i class="ti ti-calendar-plus"></i> Add to Cal</button>
     </div>
 
-    <div class="card" style="margin-bottom:12px">
+    <div class="card" style="margin-bottom:16px; padding:24px;">
       <div class="event-row">
-        <div class="event-date"><div class="event-day">18</div><div class="event-mon">May</div></div>
-        <div style="flex:1">
-          <div class="event-title">UCI Transfer Day Open House</div>
-          <div class="event-sub">UC Irvine Campus · Irvine, CA · 10:00 AM</div>
+        <div class="event-date" style="width:56px; height:56px;">
+          <div class="event-day">18</div>
+          <div class="event-mon">May</div>
+        </div>
+        <div style="flex:1; padding:0 16px;">
+          <div class="event-title" style="font-size:16px; margin-bottom:4px;">UCI Transfer Day Open House</div>
+          <div class="event-sub" style="margin-bottom:8px;">UC Irvine Campus · Irvine, CA · 10:00 AM</div>
           <span class="event-tag" style="background:#e8f2fc;color:#1a6fc4">Campus Tour</span>
         </div>
-        <button class="conn-btn" style="align-self:flex-start" onclick="toast('RSVP confirmed!')">RSVP</button>
+        <button class="conn-btn" style="align-self:center;">RSVP</button>
       </div>
     </div>
 
-    <div class="card" style="margin-bottom:12px">
+    <div class="card" style="margin-bottom:16px; padding:24px;">
       <div class="event-row">
-        <div class="event-date"><div class="event-day">22</div><div class="event-mon">May</div></div>
-        <div style="flex:1">
-          <div class="event-title">Transfer Student Networking Mixer</div>
-          <div class="event-sub">Online · Zoom · 6:00 PM</div>
+        <div class="event-date" style="width:56px; height:56px;">
+          <div class="event-day">22</div>
+          <div class="event-mon">May</div>
+        </div>
+        <div style="flex:1; padding:0 16px;">
+          <div class="event-title" style="font-size:16px; margin-bottom:4px;">Transfer Student Networking Mixer</div>
+          <div class="event-sub" style="margin-bottom:8px;">Online · Zoom · 6:00 PM</div>
           <span class="event-tag" style="background:#eaf3de;color:#3b6d11">Networking</span>
         </div>
-        <button class="conn-btn" style="align-self:flex-start" onclick="toast('RSVP confirmed!')">RSVP</button>
+        <button class="conn-btn" style="align-self:center;">RSVP</button>
       </div>
     </div>
 
-    <div class="card" style="margin-bottom:12px">
+    <div class="card" style="margin-bottom:16px; padding:24px;">
       <div class="event-row">
-        <div class="event-date"><div class="event-day">05</div><div class="event-mon">Jun</div></div>
-        <div style="flex:1">
-          <div class="event-title">UC Berkeley Haas Application Workshop</div>
-          <div class="event-sub">Online · Zoom · 4:00 PM</div>
+        <div class="event-date" style="width:56px; height:56px;">
+          <div class="event-day">05</div>
+          <div class="event-mon">Jun</div>
+        </div>
+        <div style="flex:1; padding:0 16px;">
+          <div class="event-title" style="font-size:16px; margin-bottom:4px;">UC Berkeley Haas Application Workshop</div>
+          <div class="event-sub" style="margin-bottom:8px;">Online · Zoom · 4:00 PM</div>
           <span class="event-tag" style="background:#faeeda;color:#854f0b">Workshop</span>
         </div>
-        <button class="conn-btn" style="align-self:flex-start" onclick="toast('RSVP confirmed!')">RSVP</button>
+        <button class="conn-btn" style="align-self:center;">RSVP</button>
       </div>
     </div>
-  </main>
 
+  </main>
 </div>
 
-<div class="toast" id="toast-el"></div>
-<script src="auth.js"></script>
+<script src="events.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package servlet;
 
-import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,11 +14,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.HashMap;
+
 
 @WebServlet("/network")
-public class RecommendConnectionServlet extends HttpServlet {
+public class NetworkRecommendServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -35,8 +35,7 @@ public class RecommendConnectionServlet extends HttpServlet {
         String loginPassword = System.getenv("DB_PASSWORD");
         String loginUrl = System.getenv("DB_URL");
 
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+
         try{
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -61,7 +60,7 @@ public class RecommendConnectionServlet extends HttpServlet {
             int schoolId = currentRs.getInt("school_id");
             int interestedSchoolId = currentRs.getInt("interested_school_id");
 
-            String recommendQuery = "SELECT u.first_name, u.last_name, " +
+            String recommendQuery = "SELECT u.id, u.first_name, u.last_name, " +
                     "s.name AS school_name, " +
                     "m.name AS major_name " +
                     "FROM users u " +
@@ -82,21 +81,23 @@ public class RecommendConnectionServlet extends HttpServlet {
 
             ResultSet recommendRs = recommendStmt.executeQuery();
 
-            ArrayList<HashMap<String, String>> recommendations = new ArrayList<>();
+            JsonArray recommendations = new JsonArray();
 
-            while (recommendRs.next()){
-                HashMap<String, String> user = new HashMap<>();
-                user.put("firstName", recommendRs.getString("first_name"));
-                user.put("lastName", recommendRs.getString("last_name"));
-                user.put("school", recommendRs.getString("school_name"));
-                user.put("major", recommendRs.getString("major_name"));
+            while (recommendRs.next()) {
 
+                JsonObject user = new JsonObject();
+
+                user.addProperty("id", recommendRs.getInt("id"));
+                user.addProperty("firstName", recommendRs.getString("first_name"));
+                user.addProperty("lastName", recommendRs.getString("last_name"));
+                user.addProperty("school", recommendRs.getString("school_name"));
+                user.addProperty("major", recommendRs.getString("major_name"));
                 recommendations.add(user);
             }
 
-            Gson gson = new Gson();
-            response.getWriter().write(gson.toJson(recommendations));
-
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(recommendations.toString());
             recommendRs.close();
             recommendStmt.close();
             currentRs.close();
