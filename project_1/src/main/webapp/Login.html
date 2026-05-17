@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="auth.css">
 </head>
 <body>
- <a></a>
+
+<div class="container">
+    <div class="card">
+        <h1>Welcome Back</h1>
+        <p>Log in to continue.</p>
+
+        <form action="/Login" method="post">
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <div class="link-right">
+                <a href="Reset_password.html">Reset Password</a>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="back-link">
+            <a href="Welcome.html">← Back to Home</a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
