@@ -18,9 +18,10 @@ fetch("profile")
         document.getElementById("profile-name").textContent = profile.firstName + " " + profile.lastName;
         document.getElementById("profile-school").textContent = profile.school;
         document.getElementById("profile-major").textContent = profile.major;
-        document.getElementById("profile-interested-school").textContent = profile.interestedSchool || "";
 
-        checkInterestedSchool();
+        // 如果数据库没有存 interestedSchool，就默认显示 UC San Diego
+        document.getElementById("profile-interested-school").textContent = profile.interestedSchool || "UC San Diego";
+
         renderRecommendedSchools(profile);
     })
     .catch(error => {
@@ -67,7 +68,8 @@ function renderRecommendedSchools(profile) {
     if (!container) return;
 
     const majorKey = normalizeMajor(profile.major);
-    const interestedSchool = normalizeSchoolName(profile.interestedSchool);
+    // 确保过滤推荐时，考虑默认的 UC San Diego
+    const interestedSchool = normalizeSchoolName(profile.interestedSchool || "UC San Diego");
     const recommendations = schoolRecommendations[majorKey] || schoolRecommendations.default;
 
     const visibleSchools = recommendations
@@ -93,47 +95,4 @@ function renderRecommendedSchools(profile) {
             </div>
         </div>
     `).join("");
-}
-
-function checkInterestedSchool() {
-    const val = document.getElementById("profile-interested-school").textContent.trim();
-    const btn = document.getElementById("interested-school-btn");
-    if (!val) {
-        btn.innerHTML = '<i class="ti ti-plus"></i> Add';
-    } else {
-        btn.innerHTML = '<i class="ti ti-pencil"></i> Edit';
-    }
-    btn.style.display = "inline-flex";
-}
-
-function showInterestedSchoolInput() {
-    const current = document.getElementById("profile-interested-school").textContent.trim();
-    document.getElementById("interested-school-input").value = current;
-    document.getElementById("interested-school-input-wrap").style.display = "flex";
-    document.getElementById("interested-school-input").focus();
-}
-
-function saveInterestedSchool() {
-    const val = document.getElementById("interested-school-input").value.trim();
-    if (!val) return;
-
-    fetch("update-profile", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "interestedSchool=" + encodeURIComponent(val)
-    }).then(r => {
-        if (r.ok) {
-            document.getElementById("profile-interested-school").textContent = val;
-            document.getElementById("interested-school-input-wrap").style.display = "none";
-            checkInterestedSchool();
-            renderRecommendedSchools({
-                major: document.getElementById("profile-major").textContent,
-                interestedSchool: val
-            });
-        }
-    });
-}
-
-function cancelInterestedSchool() {
-    document.getElementById("interested-school-input-wrap").style.display = "none";
 }
