@@ -594,3 +594,8 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+.selected-school-card {
+    border: 1.5px solid #9fc2ff;
+    background: #fbfdff;
+}
