@@ -7,17 +7,14 @@
 
     <title>Transfer Hub — Main</title>
 
-    <!-- ICON -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 
-    <!-- YOUR CSS -->
     <link rel="stylesheet" href="auth.css">
 
 </head>
 
 <body class="app-page">
-<!-- TOP NAV -->
 <nav>
     <a class="logo" href="#">
         <div class="logo-icon">TH</div>
@@ -39,7 +36,6 @@
 
 <div class="body">
 
-    <!-- LEFT SIDEBAR -->
     <aside>
         <div class="profile-box">
             <div class="profile-av">AC</div>
@@ -75,9 +71,7 @@
         </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main>
-        <!-- Selected Schools -->
         <div class="sec-header">
             <h3>Your selected schools</h3>
             <button class="see-all" onclick="toast('Edit selected schools')">Edit →</button>
@@ -85,34 +79,33 @@
 
         <div class="school-grid" id="selectedSchoolsGrid"></div>
 
-        <!-- A. Suggested Schools -->
         <div class="sec-header">
             <h3>Suggested schools for you</h3>
             <button class="see-all" onclick="toast('All schools →')">See all →</button>
         </div>
         <div class="school-grid">
-            <div class="school-card" onclick="toast('UCLA detail')">
+            <div class="school-card" onclick="showSchoolModal('UCLA')">
                 <div class="sc-name">UCLA</div>
                 <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Los Angeles, CA</div>
                 <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-green">Strong match</span></div>
                 <div class="match-bar"><div class="match-fill" style="width:88%;background:#1d9e75"></div></div>
                 <div class="match-meta"><span>88% match</span><span>24% acceptance</span></div>
             </div>
-            <div class="school-card" onclick="toast('UCSD detail')">
+            <div class="school-card" onclick="showSchoolModal('UCSD')">
                 <div class="sc-name">UC San Diego</div>
                 <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> La Jolla, CA</div>
                 <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-green">Strong match</span></div>
                 <div class="match-bar"><div class="match-fill" style="width:83%;background:#1d9e75"></div></div>
                 <div class="match-meta"><span>83% match</span><span>30% acceptance</span></div>
             </div>
-            <div class="school-card" onclick="toast('UCI detail')">
+            <div class="school-card" onclick="showSchoolModal('UCI')">
                 <div class="sc-name">UC Irvine</div>
                 <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Irvine, CA</div>
                 <div class="badge-row"><span class="badge b-blue">CS</span><span class="badge b-amber">Good match</span></div>
                 <div class="match-bar"><div class="match-fill" style="width:76%;background:#ef9f27"></div></div>
                 <div class="match-meta"><span>76% match</span><span>35% acceptance</span></div>
             </div>
-            <div class="school-card" onclick="toast('UC Berkeley detail')">
+            <div class="school-card" onclick="showSchoolModal('UCB')">
                 <div class="sc-name">UC Berkeley</div>
                 <div class="sc-loc"><i class="ti ti-map-pin" style="font-size:10px"></i> Berkeley, CA</div>
                 <div class="badge-row"><span class="badge b-blue">EECS</span><span class="badge b-amber">Reach</span></div>
@@ -121,7 +114,6 @@
             </div>
         </div>
 
-        <!-- B. Peer Suggestions (My Network) -->
         <div class="sec-header">
             <h3>Peer suggestions</h3>
             <button class="see-all" onclick="window.location.href='network.html'">See all →</button>
@@ -152,7 +144,6 @@
             </div>
         </div>
 
-        <!-- C. Transfer Insights -->
         <div class="sec-header">
             <h3>Transfer insights</h3>
             <button class="see-all" onclick="toast('Full insights feed')">See all →</button>
@@ -176,7 +167,6 @@
             </div>
         </div>
 
-        <!-- D. Events Near You -->
         <div class="sec-header">
             <h3>Events near you</h3>
             <button class="see-all" onclick="window.location.href='events.html'">See all →</button>
@@ -206,9 +196,7 @@
 
     </main>
 
-</div><!-- .body -->
-
-<div class="toast" id="toast-el"></div>
+</div><div class="toast" id="toast-el"></div>
 <script src="auth.js"></script>
 
 </body>

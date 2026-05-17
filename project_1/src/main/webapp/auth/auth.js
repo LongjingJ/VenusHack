@@ -318,8 +318,9 @@ function loadSelectedSchools() {
         const badgeClass = school.match >= 80 ? "b-green" :
             school.match >= 70 ? "b-amber" : "b-blue";
 
+        // 重点修改：这里的动态卡片也绑定 showSchoolModal
         grid.innerHTML += `
-            <div class="school-card selected-school-card" onclick="toast('${school.name} detail')">
+            <div class="school-card selected-school-card" onclick="showSchoolModal('${code}')">
                 <div class="sc-name">${school.name}</div>
 
                 <div class="sc-loc">
@@ -349,3 +350,93 @@ document.addEventListener("DOMContentLoaded", function () {
     applyProfile();
     loadSelectedSchools();
 });
+
+// ==========================================
+// 全局学校信息弹窗逻辑 (Hackathon Mock Data)
+// ==========================================
+const schoolDatabase = {
+    "UCLA": {
+        name: "University of California, Los Angeles",
+        location: "Los Angeles, CA",
+        acceptance: "24% (Transfer)",
+        gpa: "3.7 - 4.0",
+        desc: "Highly competitive. Requires completion of major prep courses. IGETC is highly recommended for College of Letters and Science."
+    },
+    "UCB": {
+        name: "University of California, Berkeley",
+        location: "Berkeley, CA",
+        acceptance: "21% (Transfer)",
+        gpa: "3.8 - 4.0",
+        desc: "L&S L&S requires full IGETC completion by Spring prior to transfer. EECS requires specific math and engineering sequences."
+    },
+    "UCI": {
+        name: "University of California, Irvine",
+        location: "Irvine, CA",
+        acceptance: "35% (Transfer)",
+        gpa: "3.4 - 3.9",
+        desc: "Participates in TAG (Transfer Admission Guarantee) for certain majors, making it an excellent target school. Strong CS program."
+    },
+    "UCSD": {
+        name: "University of California, San Diego",
+        location: "La Jolla, CA",
+        acceptance: "30% (Transfer)",
+        gpa: "3.5 - 4.0",
+        desc: "College system requires specific GEs. Computer Science is heavily impacted and requires high major prep GPA."
+    },
+    "UCSB": {
+        name: "University of California, Santa Barbara",
+        location: "Santa Barbara, CA",
+        acceptance: "32% (Transfer)",
+        gpa: "3.4 - 3.8",
+        desc: "Offers TAG for College of Letters & Science. Beautiful coastal campus with strong physics and engineering programs."
+    },
+    "UCD": {
+        name: "University of California, Davis",
+        location: "Davis, CA",
+        acceptance: "41% (Transfer)",
+        gpa: "3.2 - 3.7",
+        desc: "Strong STEM and agriculture programs. Participates in TAG. Very transfer-friendly campus culture."
+    },
+    "UCSC": {
+        name: "University of California, Santa Cruz",
+        location: "Santa Cruz, CA",
+        acceptance: "47% (Transfer)",
+        gpa: "3.0 - 3.5",
+        desc: "Excellent game design and computer science programs. Participates in TAG for many majors."
+    },
+    "UCR": {
+        name: "University of California, Riverside",
+        location: "Riverside, CA",
+        acceptance: "61% (Transfer)",
+        gpa: "2.8 - 3.4",
+        desc: "Fast-growing campus. Participates in TAG. Great support systems for transfer and first-generation students."
+    },
+    "UCM": {
+        name: "University of California, Merced",
+        location: "Merced, CA",
+        acceptance: "74% (Transfer)",
+        gpa: "2.8 - 3.2",
+        desc: "Newest UC campus with modern facilities. Small class sizes and highly accessible research opportunities."
+    }
+};
+
+function showSchoolModal(schoolKey) {
+    const data = schoolDatabase[schoolKey] || {
+        name: schoolKey, location: "California", acceptance: "N/A", gpa: "N/A", desc: "Detailed information coming soon."
+    };
+
+    let modal = document.getElementById('universalSchoolModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'universalSchoolModal';
+        modal.style.cssText = `
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+            background: rgba(0,0,0,0.5); display: flex; justify-content: center; 
+            align-items: center; z-index: 9999; opacity: 0; pointer-events: none; 
+            transition: opacity 0.2s ease;
+        `;
+
+        modal.innerHTML = `
+            <div style="background: white; padding: 24px; border-radius: 12px; width: 90%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative;">
+                <button onclick="closeSchoolModal()" style="position: absolute; top: 12px; right: 12px; border: none; background: #f0f0f0; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-weight: bold; color: #333;">✕</button>
+                <h2 id="modal-title" style="margin-top: 0; margin
