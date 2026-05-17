@@ -45,44 +45,62 @@ cd Transparent
 
 2. Set Up MySQL
 
-Create a database in MySQL:
-For each sql file:
-SOURCE <path of the file>
+- Create a database in MySQL:
+  
+    For each sql file:
+  
+    SOURCE <path of the file>
 
-Update your database credentials inside the backend configuration or servlet files:
+- Update your database credentials inside the backend configuration or servlet files:
 
-String loginUser = "your_username";
-String loginPasswd = "your_password";
-String loginUrl = "jdbc:mysql://localhost:3306/logindb";
+    String loginUser = "your_username";
+    String loginPasswd = "your_password";
+    String loginUrl = "jdbc:mysql://localhost:3306/logindb";
 
 3. Open Project in IntelliJ IDEA
-Open IntelliJ IDEA
-Select Open Project
-Open the Transparent project folder
-Make sure Maven dependencies are loaded
+   
+  - Open IntelliJ IDEA
+
+  - Select Open Project
+
+  - Open the Transparent project folder
+
+  - Make sure Maven dependencies are loaded
 
 
-4. Configure Tomcat
-Install Apache Tomcat
-In IntelliJ:
-Go to Run → Edit Configurations
-Add a new Tomcat Server
-Select your Tomcat installation folder
-Deploy the project artifact (war exploded)
+5. Configure Tomcat'
+   
+  - Install Apache Tomcat
+
+  - In IntelliJ:
+
+  - Go to Run → Edit Configurations
+
+  - Add a new Tomcat Server
+
+  - Select your Tomcat installation folder
+
+  - Deploy the project artifact (war exploded)
 
 
-5. Run the Project
+6. Run the Project
 
-Start the Tomcat server and open:
+  - Start the Tomcat server and open:
 
-http://localhost:8080/
+  - http://localhost:8080/
+
+
 
 Future Improvements
 
+  - Mobile responsive design
 
-Mobile responsive design
-Real-time messaging system
-AI-powered transfer recommendations
-Better mentor matching
-Email notifications for deadlines
-Transfer roadmap generation
+  - Real-time messaging system
+
+  - AI-powered transfer recommendations
+
+  - Better mentor matching
+
+  - Email notifications for deadlines
+
+  - Transfer roadmap generation
