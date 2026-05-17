@@ -439,4 +439,40 @@ function showSchoolModal(schoolKey) {
         modal.innerHTML = `
             <div style="background: white; padding: 24px; border-radius: 12px; width: 90%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative;">
                 <button onclick="closeSchoolModal()" style="position: absolute; top: 12px; right: 12px; border: none; background: #f0f0f0; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-weight: bold; color: #333;">✕</button>
-                <h2 id="modal-title" style="margin-top: 0; margin
+                <h2 id="modal-title" style="margin-top: 0; margin-bottom: 8px; color: #1a1a1a; font-size: 20px;">School Name</h2>
+                <div id="modal-loc" style="color: #666; font-size: 14px; margin-bottom: 16px;">📍 Location</div>
+                
+                <div style="display: flex; gap: 16px; margin-bottom: 16px; padding: 12px; background: #f9fafb; border-radius: 8px;">
+                    <div style="flex: 1;">
+                        <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Admit Rate</div>
+                        <div id="modal-acc" style="font-weight: bold; color: #1a6fc4; font-size: 16px;">--</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Target GPA</div>
+                        <div id="modal-gpa" style="font-weight: bold; color: #1d9e75; font-size: 16px;">--</div>
+                    </div>
+                </div>
+                
+                <p id="modal-desc" style="font-size: 14px; line-height: 1.5; color: #444; margin-bottom: 0;"></p>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    document.getElementById('modal-title').innerText = data.name;
+    document.getElementById('modal-loc').innerText = "📍 " + data.location;
+    document.getElementById('modal-acc').innerText = data.acceptance;
+    document.getElementById('modal-gpa').innerText = data.gpa;
+    document.getElementById('modal-desc').innerText = data.desc;
+
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'auto';
+}
+
+function closeSchoolModal() {
+    const modal = document.getElementById('universalSchoolModal');
+    if (modal) {
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+    }
+}
