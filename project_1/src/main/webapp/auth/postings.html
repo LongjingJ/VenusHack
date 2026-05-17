@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <title>Transfer Hub — Postings</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="auth.css">
 </head>
 
-<body>
+<body class="app-page">
 <nav>
   <a class="logo" href="main.html">
     <div class="logo-icon">TH</div>
@@ -39,17 +39,31 @@
       <div class="profile-gpa">GPA 3.7 · CS · Resident</div>
     </div>
 
-    <div class="sb-label">Browse</div>
-    <button class="sb-item" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main page</button>
-    <button class="sb-item active" onclick="window.location.href='postings.html'"><i class="ti ti-layout-list"></i>Users' postings</button>
-    <button class="sb-item" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>My Network</button>
-
     <div class="sb-divider"></div>
 
-    <div class="sb-label">Transfer Tools</div>
-    <button class="sb-item" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Transfer schools</button>
-    <button class="sb-item" onclick="toast('Acceptance Rates')"><i class="ti ti-chart-bar"></i>Acceptance rates</button>
-    <button class="sb-item" onclick="window.open('https://assist.org','_blank')"><i class="ti ti-external-link"></i>ASSIST database</button>
+    <div class="rb-title">Your progress</div>
+    <div class="prog-box">
+      <div class="prog-label">Transfer readiness</div>
+      <div class="prog-bar">
+        <div class="prog-fill" style="width:72%"></div>
+      </div>
+      <div class="prog-pct">72% complete</div>
+      <div class="prog-hint">Missing: TAG app, 2 recs</div>
+    </div>
+
+    <div class="rb-title">Deadlines</div>
+    <div class="deadline-row">
+      <span>UC application</span>
+      <span style="color:#e24b4a;font-weight:500">Nov 30</span>
+    </div>
+    <div class="deadline-row">
+      <span>TAG deadline</span>
+      <span style="color:#ef9f27;font-weight:500">Sep 30</span>
+    </div>
+    <div class="deadline-row">
+      <span>IGETC petition</span>
+      <span>Jun 15</span>
+    </div>
   </aside>
 
   <main>
@@ -120,29 +134,10 @@
     </div>
   </main>
 
-  <div class="right-bar">
-    <div class="rb-title">Trending Topics</div>
-    <div class="deadline-row"><span style="cursor: pointer; color:#1a6fc4;" onclick="toast('Showing #IGETC')">#IGETC</span></div>
-    <div class="deadline-row"><span style="cursor: pointer; color:#1a6fc4;" onclick="toast('Showing #TAG_Agreement')">#TAG_Agreement</span></div>
-    <div class="deadline-row"><span style="cursor: pointer; color:#1a6fc4;" onclick="toast('Showing #FinancialAid')">#FinancialAid</span></div>
-    <div class="deadline-row"><span style="cursor: pointer; color:#1a6fc4;" onclick="toast('Showing #CS_Admissions')">#CS_Admissions</span></div>
+</div>
 
-    <div class="rb-title" style="margin-top: 24px;">Top Contributors</div>
-    <div class="peer-row" style="margin-top: 12px; margin-bottom: 12px;">
-      <div class="peer-av" style="background:#faeeda;color:#854f0b; width: 32px; height: 32px; font-size: 12px;">SP</div>
-      <div>
-        <div class="peer-name" style="font-size: 13px;">Sofia Patel</div>
-      </div>
-    </div>
-    <div class="peer-row">
-      <div class="peer-av" style="background:#eaf3de;color:#3b6d11; width: 32px; height: 32px; font-size: 12px;">ES</div>
-      <div>
-        <div class="peer-name" style="font-size: 13px;">Emily Smith</div>
-      </div>
-    </div>
-  </div>
-</div> <div class="toast" id="toast-el"></div>
-<script src="../js/app.js"></script>
+<div class="toast" id="toast-el"></div>
+<script src="auth.js"></script>
 
 </body>
 </html>

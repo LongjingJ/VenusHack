@@ -21,7 +21,7 @@
 
   <div class="nav-links">
     <button class="nav-btn" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main</button>
-    <button class="nav-btn" onclick="toast('Postings page')"><i class="ti ti-layout-list"></i>Postings</button>
+    <button class="nav-btn" onclick="window.location.href='postings.html'"><i class="ti ti-layout-list"></i>Postings</button>
     <button class="nav-btn active" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>Network</button>
     <button class="nav-btn" onclick="window.location.href='events.html'"><i class="ti ti-calendar-event"></i>Events</button>
     <button class="nav-btn" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Schools</button>
@@ -39,17 +39,31 @@
       <div class="profile-gpa">GPA 3.7 · CS · Resident</div>
     </div>
 
-    <div class="sb-label">Browse</div>
-    <button class="sb-item" onclick="window.location.href='main.html'"><i class="ti ti-home"></i>Main page</button>
-    <button class="sb-item" onclick="toast('Users\' Postings')"><i class="ti ti-layout-list"></i>Users' postings</button>
-    <button class="sb-item active" onclick="window.location.href='network.html'"><i class="ti ti-users"></i>My Network</button>
-
     <div class="sb-divider"></div>
 
-    <div class="sb-label">Transfer Tools</div>
-    <button class="sb-item" onclick="window.location.href='schools.html'"><i class="ti ti-building-community"></i>Transfer schools</button>
-    <button class="sb-item" onclick="toast('Acceptance Rates')"><i class="ti ti-chart-bar"></i>Acceptance rates</button>
-    <button class="sb-item" onclick="window.open('https://assist.org','_blank')"><i class="ti ti-external-link"></i>ASSIST database</button>
+    <div class="rb-title">Your progress</div>
+    <div class="prog-box">
+      <div class="prog-label">Transfer readiness</div>
+      <div class="prog-bar">
+        <div class="prog-fill" style="width:72%"></div>
+      </div>
+      <div class="prog-pct">72% complete</div>
+      <div class="prog-hint">Missing: TAG app, 2 recs</div>
+    </div>
+
+    <div class="rb-title">Deadlines</div>
+    <div class="deadline-row">
+      <span>UC application</span>
+      <span style="color:#e24b4a;font-weight:500">Nov 30</span>
+    </div>
+    <div class="deadline-row">
+      <span>TAG deadline</span>
+      <span style="color:#ef9f27;font-weight:500">Sep 30</span>
+    </div>
+    <div class="deadline-row">
+      <span>IGETC petition</span>
+      <span>Jun 15</span>
+    </div>
   </aside>
 
   <main>
@@ -107,12 +121,6 @@
     </div>
   </main>
 
-  <div class="right-bar">
-    <div class="rb-title">Connections</div>
-    <div class="deadline-row"><span>Pending Requests</span><span style="color:#1d9e75;font-weight:500">2</span></div>
-    <div class="deadline-row"><span>Total Connections</span><span style="font-weight:500">14</span></div>
-    <button class="quick-btn" style="margin-top: 12px;" onclick="toast('Invite friends')"><i class="ti ti-user-plus"></i>Invite peers</button>
-  </div>
 </div>
 
 <div class="toast" id="toast-el"></div>
